@@ -2,12 +2,18 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Karla", sans-serif;
+  font-family: "Fedra"
 }
 
 @font-face {
   font-family: 'Duke';
   src: url('/Recursos/Duke\ Charming\ DEMO.otf') format('truetype');
+  /* Otras fuentes web (woff, woff2) deberían definirse aquí también si las tienes */
+}
+
+@font-face {
+  font-family: 'Fedra';
+  src: url('/Recursos/Fedra/FedraSansPro-Normal.woff') format('truetype');
   /* Otras fuentes web (woff, woff2) deberían definirse aquí también si las tienes */
 }
 
@@ -22,6 +28,7 @@ header {
   overflow: hidden;
   padding: 0 3rem;
   background-color: white;
+  box-shadow: none;
 }
 
 #logo {
@@ -55,6 +62,7 @@ header {
   height: 2px;
   background: #ef8024;
   transition: left 0.3s;
+
 }
 
 .navbar-nav a:hover:after {
@@ -88,7 +96,6 @@ header {
   /*position: sticky;*/
   top: 90px;
   color: white;
-
 }
 
 #boca {
@@ -98,7 +105,7 @@ header {
 }
 
 /*----------------------------------------------------------------------------*/
-#texto1 {
+#texto1 { 
   color: black;
   border-radius: 25%;
   text-align: center;
@@ -118,19 +125,25 @@ header {
 .titulos_respons {
   color: #20a49c;
 }
+
 @media (max-width: 992px) {
   .titulos_respons {
     font-size: x-large;
   }
 }
+
 @media (max-width: 767px) {
   .titulos_respons {
     font-size: xx-large;
   }
 }
 
-#img1 {
-  max-width: 80%;
+#ladoImagen{
+}
+
+
+#img1{
+
 }
 
 #btncontacto {
@@ -186,7 +199,7 @@ header {
   width: 100px;
   height: 150px;
   position: absolute;
-  z-index: 7;
+  z-index: 1;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -248,27 +261,80 @@ header {
   }
 }
 /*----------------------------------------------------------------------------*/
-#wave {
-  width: 100%;
-  position: relative;
-  top: 0;
-}
 
 .container1 {
   padding: 0 2%;
 }
 
 iframe {
-  border-radius: 15px; /* Esquinas redondeadas */
-  border: 2px solid black;
-  width: auto;
-  height: 250px;
+  border-top-left-radius: 15px; /* Esquina superior izquierda redondeada */
+  border-top-right-radius: 15px; /* Esquina superior derecha redondeada */
 }
 
-/*----------------------------------------------------------------------------*/
+
+
+/* PORQUE ELEGIRME ----------------------------------------------------------------------------*/
+
+ #porqueami{
+  background-image: url(/img/linea1.png);
+  background-repeat: no-repeat;
+  background-position: center bottom ;
+ }
+
+/* SERVICIOS ----------------------------------------------------------------------------*/
+
+#custom-cards-servicios {
+  background-image: url(/img/linea4.png);
+  background-repeat: no-repeat;
+  background-size: 900px;
+  background-position: 10px 20px; /* Ajusta los valores según tus necesidades */
+}
+
+
+/* Testimonios ----------------------------------------------------------------------------*/
+
+#custom-cards-testimonios{
+  
+}
+
+.carousel-custom-button {
+  width: 50px;
+  height: 50px;
+  border: 2px solid black; /* Borde negro de 2px */
+  border-radius: 50%; /* Borde redondeado para hacerlo circular */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: filter 0s; /* Desactiva la transición de filtro en 0 segundos */
+}
+
+/* Elimina el efecto de hover */
+.carousel-custom-button:hover {
+  filter: none; /* Establece el filtro en "none" en hover */
+}
+
+/* Blogs ----------------------------------------------------------------------------*/
+
+#blogs{
+  background-image: url(/img/linea2.png);
+  background-repeat: no-repeat;
+  background-position: center bottom ;
+}
+
+/* ----------------------------------------------------------------------------*/
+
+
 footer {
   width: 100%;
   color: black;
+  padding: 100px;
+}
+
+#final{
+  background-image: url(/img/linea3.png);
+  background-repeat: no-repeat;
+  background-size: 900px;
+  background-position: 700px -50px; /* Ajusta los valores según tus necesidades */
 }
 
 @media (max-width: 576px) {
@@ -314,3 +380,5 @@ img {
     border-width: 1px 0;
     box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, .1), inset 0 0.125em 0.5em rgba(0, 0, 0, .15);
 }
+
+

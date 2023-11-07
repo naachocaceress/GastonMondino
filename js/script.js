@@ -10,3 +10,15 @@
 //       header.style.backgroundColor = "whitesmoke"; // Cambia de nuevo al color original
 //     }
 //   });
+
+window.addEventListener('scroll', function() {
+  var header = document.querySelector('header');
+  if (window.scrollY > 0) {
+    header.style.borderBottom = "3px solid black"; // Agrega un borde inferior cuando el scroll es mayor que 0
+  } else {
+    header.style.borderBottom = 'none'; // Quita el borde inferior si el scroll es 0
+  }
+});
+
+  
+  
