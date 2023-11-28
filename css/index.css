@@ -12,9 +12,27 @@ body {
   /* Otras fuentes web (woff, woff2) deberían definirse aquí también si las tienes */
 }
 
+@font-face {
+  font-family: 'Averta';
+  src: url('/assets/Averta/AvertaDemoPECuttedDemo-Regular.otf') format('truetype');
+  /* Otras fuentes web (woff, woff2) deberían definirse aquí también si las tienes */
+}
 
-@media (max-width: 1000px) {
+@media (min-width: 770px) {
+  .my-custom-class {
+    height: 100vh;
+    margin-top: 30px;
+  }
+}
+@media (max-width: 769.98px) {
+  .my-custom-class {
+    height: auto;
+    margin-top: 80px;
+  }
 
+  .coete{
+    font-size: 1rem;
+  }
 }
 
 #logo {
@@ -209,7 +227,7 @@ iframe {
 .card-front{
   border-radius: 30px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-
+  font-family: 'Lilita One';
 
   font-size: 30px;
   position: absolute;
@@ -229,8 +247,8 @@ iframe {
   box-shadow: 0 5px 10px #000;
 
 
-  background-color: white;
-  color: black;
+  background: rgb(3, 35, 54);
+  color: white;
   transform: rotateY(180deg);
 }
 
