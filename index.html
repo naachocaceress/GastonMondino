@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/wapp.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
@@ -23,81 +24,82 @@
 
 <body>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <a href="https://api.whatsapp.com/message/32ES7KUOOJEDE1?autoload=1&app_absent=0" class="float" target="_blank">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" >
+    <a href="https://api.whatsapp.com/message/32ES7KUOOJEDE1?autoload=1&app_absent=0" 
+    class="float" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-custom-class="custom-tooltip" data-bs-title="¿Necesitas ayuda?">
         <i class="fa fa-whatsapp my-float"></i>
     </a>
 
     <header id="header">
-        <div class="container-fluid saca_butter">
-            <nav class="navbar navbar-expand-sm">
-                <div class="container-fluid saca_butter">
-                    <a class="navbar-brand logo" href="#">
-                        <img id="logo" src="../img/LOGO GM NEGRO.png" alt="Logo">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-end nav_desple" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item text-end p-2">
-                                <a class="nav-link current text_link" href="index.html">Inicio</a>
-                            </li>
-                            <li class="nav-item text-end p-2">
-                                <a class="nav-link " href="#">Blog</a>
-                            </li>
-                            <li class="nav-item text-end p-2">
-                                <a class="nav-link" href="#">Servicios</a>
-                            </li>
-                            <li class="nav-item text-end p-2">
-                                <a class="nav-link" href="#">Acerca de mí</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
 
-        </div>
+<nav class="navbar navbar-expand-lg bg-body fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img id="logo" src="../img/LOGO GM NEGRO.png" alt="Logo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link current text_link" href="index.html">Inicio</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">Blog</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="#">Servicios</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Acerca de mí</a>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
     </header>
 
-    <div id="cabeza">
+    <div class="vh-100 d-flex justify-content-center align-items-center mt-n5" style="margin-top: 50px;"> <!-- Añade un margen superior y un padding-top -->
+        <div class="row w-100 text-center" style="padding-left: 30px; padding-right: 30px;">
 
-        <div class="container" style="padding: 20px;">
-
-                <div class="row p-3">
-                    <div id="texto1" class="col-md-6">
-
-                        <h1><span class="titulos_respons">Comunicá</span><br>
-                            <span class="titulos_respons" style="font-weight: bold;">Desde vos con tu voz<br>
-                                <span id="titulaso" style="font-family: 'Leckerli One', cursive; font-family: 'Agbalumo'; font-size: 3em; margin: 0; padding: 0;">
-                                    Y marcá la
-                                    diferencia</span>
-                        </h1>
-                        <hr>
-
-                        <p class="tex" style="font-size: 20px; margin: 0; padding: 0;">Aprendé habilidades, técnicas,
-                            tips, herramientas y mucho contenido de valor para impactar positivamente en
-                            <strong>tu vida personal y laboral.</strong>
-                        </p> <br>
-                        <h4 style="font-weight: bold; color:#20a49c">🚀 ¡Te acompaño a lograrlo! 🚀</h4>
-                        <br>
-                        <a href="https://api.whatsapp.com/message/32ES7KUOOJEDE1?autoload=1&app_absent=0"
-                            class="ov-btn-grow-ellipse">¡Hablemos!</a>
+            <div class="col-md-6 p-2">
+                <div class="inicio">
+                    <div style="white-space: nowrap;">
+                        <h4 class="display-6">Comunicá</h4>
+                        <h4 class="display-6" style="font-weight: bold;">Desde vos con tu voz</h4>
+                        <h1 class="display-1" style="font-family: 'Agbalumo'; margin: 0; padding: 0; font-weight: bold;                         ">
+                            Y MARCÁ LA <br>DIFERENCIA </h1>
                     </div>
+                    
+                    <hr>
 
-                    <div class="col-md-6" id="ladoImagen">
-                        <img id="img1" src="../img/perfil2.png" class="d-block mx-lg-auto img-fluid"
-                            alt="Bootstrap Themes" width="700" height="500" loading="lazy">
-                    </div>
+                    <p class="lead" style="color: black;">Aprendé habilidades, técnicas,
+                        tips, herramientas y mucho contenido de valor para impactar positivamente en
+                        <strong>tu vida personal y laboral.</strong>
+                    </p> 
+                    
+                    <br>
+
+                    <h4><strong style="white-space: nowrap; padding: 10px;">🚀 ¡Te acompaño a lograrlo! 🚀</strong></h4>
+                    <a href="https://api.whatsapp.com/message/32ES7KUOOJEDE1?autoload=1&app_absent=0"
+                        class="ov-btn-grow-ellipse">¡Hablemos!</a>  
+
+                                
                 </div>
+            </div>
 
-        </div>
+            <div class="col-md-6 p-2" >
+                <div class="inicio">
+                    <img src="../img/perfil2.png" class="img-fluid imgInicio" alt="Bootstrap Themes">
+                </div>
+            </div>
 
-        <div class="containerArrow">
-                <div class="chevron"></div>
-                <div class="chevron"></div>
-                <div class="chevron"></div>
         </div>
 
     </div>
@@ -106,7 +108,7 @@
     <div class="b-example-divider"></div>
 
     <div class="px-4 pt-5 my-5 text-center" id="porqueami">
-            <h1 class="display-4 fw-bold text-body-emphasis">¿Por qué elegirme?</h1>
+            <h1 class="display-4 fw-bold text-body-emphasis">Más sobre mi</h1>
             <div class="col-lg-6 mx-auto"> <br>
 
                 <div class="row">
@@ -151,66 +153,66 @@
     <div class="container px-4 py-5" id="custom-cards-servicios">
         <h2 class="pb-2 border-bottom">Servicios</h2>
 
-        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-            <div class="col">
-                <div class="cardServicio">
-                    <div class="face front">
-                        <img src="/img/coaching1.jpg" alt="">
-                        <h3>LOCUCIÓN</h3>
-                    </div>
-                    <div class="face back">
-                        <h3>LOCUCIÓN</h3>
-                        <p> - CONDUCCIÓN Y ANIMACIÓN DE EVENTOS <br>
-                            - LOCUCIÓN COMERCIAL <br>
-                            - VOZ EN OFF / VOICE OVER / AUDIOLIBROS
-                        </p>
-                        <div class="link">
-                            <a href="#">Ver mas</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4 text-center">
 
-            <div class="col">
-                <div class="cardServicio">
-                    <div class="face front">
-                        <img src="/img/coaching2.jpg" alt="">
-                        <h3>ORATORIA Y COMUNICACIÓN PROFESIONAL</h3>
-                    </div>
-                    <div class="face back">
-                        <h3>ORATORIA Y COMUNICACIÓN PROFESIONAL</h3>
-                        <p> - ENTRENAMIENTO INDIVIDUAL PERSONALIZADO (PRESENCIAL/VIRTUAL) <br>
-                            - ENTRENAMIENTOS GRUPALES (PRESENCIALES/VIRTUALES)
-                        </p>
-                        <div class="link">
-                            <a href="#">Ver mas</a>
-                        </div>
-                    </div>
+            <div class="col flip-card">
+              <div class="card text-bg-dark flip-card-inner">
+                <img src="/img/COACHING ORGANIZACIONAL.jpeg" class="card-img" alt="..." style="border-radius: 10px;">
+                <div class="card-img-overlay">
+                  <h5 class="card-title card-front">COACHING</h5>
                 </div>
-            </div>
-
-            <div class="col">
-                <div class="cardServicio">
-                    <div class="face front">
-                        <img src="/img/coaching3.jpg" alt="">
-                        <h3>COACHING</h3>
-                    </div>
-                    <div class="face back">
-                        <h3>COACHING</h3>
+              <div class="flip-card-back">
+                <h3>COACHING</h3>
                         <p> - CONVERSACIONES INDIVIDUALES DE COACHING ONTOLÓGICO <br>
                             - COACHING EJECUTIVO / ORGANIZACIONAL
                         </p>
                         <div class="link">
                             <a href="#">Ver mas</a>
                         </div>
-                    </div>
-                </div>
+              </div>
+              </div>
             </div>
 
+            <div class="col flip-card">
+                <div class="card text-bg-dark flip-card-inner">
+                  <img src="/img/LOCUCION.jpg" class="card-img" alt="..." style="border-radius: 10px;">
+                  <div class="card-img-overlay">
+                    <h5 class="card-title card-front">LOCUCIÓN</h5>
+                  </div>
+                <div class="flip-card-back">
+                    <h3>LOCUCIÓN</h3>
+                    <p> - CONDUCCIÓN Y ANIMACIÓN DE EVENTOS <br>
+                        - LOCUCIÓN COMERCIAL <br>
+                        - VOZ EN OFF / VOICE OVER / AUDIOLIBROS
+                    </p>
+                    <div class="link">
+                        <a href="#">Ver mas</a>
+                    </div>
+                </div>
+                </div>
+              </div>
 
+            <div class="col flip-card">
+                <div class="card text-bg-dark flip-card-inner">
+                  <img src="/img/ORATORIA.jpg" class="card-img" alt="..." style="border-radius: 10px;">
+                  <div class="card-img-overlay">
+                    <h5 class="card-title card-front">ORATORIA Y COMUNICACIÓN PROFESIONAL</h5>
+                  </div>
+                <div class="flip-card-back">
+                    <h3>ORATORIA Y COMUNICACIÓN PROFESIONAL</h3>
+                    <p> - ENTRENAMIENTO INDIVIDUAL PERSONALIZADO (PRESENCIAL/VIRTUAL) <br>
+                        - ENTRENAMIENTOS GRUPALES (PRESENCIALES/VIRTUALES)
+                    </p>
+                    <div class="link">
+                        <a href="#">Ver mas</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+          </div>
 
-
-        </div>
+        </div> 
     </div>
 
     <div class="b-example-divider"></div>
@@ -219,40 +221,54 @@
         <h2 class="pb-2 border-bottom">Testimonios</h2> <br>
 
         <div class="wrapper">
-            <i id="left" class="text-center"><</i>
+            <i id="left" class="text-center"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
+                <path d="M10 12.796V3.204L4.519 8zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
+              </svg></i>
             <ul class="carousel">
 
                 <li class="card">
-                    <div class="img"><img src="/img/persona3.jpg" alt="img" draggable="false"></div>
-                    <h2>Juan Perez</h2>
-                    <span>Director técnico</span> <br>
-                    <p class="text-center">"Gastón ha sido un guía excepcional en mi camino hacia el éxito. Su enfoque y
-                        orientación han tenido un impacto significativo en mi desarrollo personal y profesional."</p>
+                    <div class="img"><img src="/img/ALICIA.png" alt="img" draggable="false"></div>
+                    <h2>Alicia</h2>
+                    <span></span> <br>
+                    <p class="text-center">"Quiero agradecerte la conversación de coaching que tuvimos. Me sentí escuchada y acompañada. Tus preguntas me ayudaron a reflexionar, y a tener mayor claridad sobre los objetivos que quiero lograr."</p>
                 </li>
 
                 <li class="card">
-                    <div class="img"><img src="/img/persona1.jpg" alt="img" draggable="false"></div>
-                    <h2>Ignacio Cáceres</h2>
-                    <span>Programador</span> <br>
-                    <p class="text-center">"Con la ayuda de Gastón, he adquirido una mayor claridad en mis metas y una confianza renovada en mí mismo."</p>
+                    <div class="img"><img src="/img/SOFIA.png" alt="img" draggable="false"></div>
+                    <h2>Sofia</h2>
+                    <span></span> <br>
+                    <p class="text-center">"En coaching se trabajan temas puntuales y Gastón me acompañó a través de preguntas para buscarles una posible solución. En mi experiencia personal me ayudó a superar mis miedos, por eso lo recomiendo mucho. Seguro vas aprender a escuchar, analizar y reflexionar sobre vos y los demás"</p>
                 </li>
 
                 <li class="card">
-                    <div class="img"><img src="/img/persona4.jpg" alt="img" draggable="false"></div>
-                    <h2>Lionel Messi</h2>
-                    <span>Futbolista</span> <br>
-                    <p class="text-center">"No puedo agradecer lo suficiente a Gastón por su orientación invaluable. Su enfoque estructurado y su capacidad para escuchar me ayudaron a superar obstáculos en mi carrera."</p>
+                    <div class="img"><img src="/img/ANALIA.png" alt="img" draggable="false"></div>
+                    <h2>Analia</h2>
+                    <span></span> <br>
+                    <p class="text-center">"Gaston sos un genio, con mucho respeto y profesionalidad me acompañaste  a mejorar mi capacidad de comunicar, hacer mi primer vídeo y perder miedos.. gracias gracias gracias"</p>
                 </li>
 
                 <li class="card">
-                    <div class="img"><img src="/img/persona2.jpg" alt="img" draggable="false"></div>
-                    <h2>Melina Ceballos</h2>
-                    <span>Personal Training</span> <br>
-                    <p class="text-center">"Gastón es el mejor coach, demostrando compromiso, mejoro mis habilidades con apoyo y estrategias efectivas."</p>
+                    <div class="img"><img src="/img/PAMELA.jpeg" alt="img" draggable="false"></div>
+                    <h2>Pamela</h2>
+                    <span></span> <br>
+                    <p class="text-center">"Te quería agradecer porque me sentí muy cómoda en cada conversación, sentí mucha confianza en expresarme. Gracias por la escucha y también por ayudarme a hacerme preguntas y movimientos para generar los cambios que requiero.
+                        Siempre recomiendo que otra persona tenga la posibilidad de tener una sesión con vos! 
+                        "</p>
                 </li>
+
+                <li class="card">
+                    <div class="img"><img src="/img/NESTOR.jpeg" alt="img" draggable="false"></div>
+                    <h2>Nestor</h2>
+                    <span></span> <br>
+                    <p class="text-center">"Gracias Gastón, muchísimas gracias por el servicio de tu locución y conducción. La verdad que impecable, la fiesta no hubiera sido la misma sin vos."</p>
+                </li>
+
+                
                 
             </ul>
-            <i id="right" class="text-center">></i>
+            <i id="right" class="text-center"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
+                <path d="M6 12.796V3.204L11.481 8zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+              </svg></i>
         </div>
 
     </div>
@@ -264,14 +280,22 @@
 
         <div class="scroller" data-direction="right" data-speed="slow">
             <div class="scroller__inner">
-                <img src="img/logos/3m.svg" />
-                <img src="img/logos/barstool-store.svg" />
-                <img src="img/logos/budweiser.svg" />
-                <img src="img/logos/buzzfeed.svg" />
-                <img src="img/logos/forbes.svg" />
-                <img src="img/logos/macys.svg" />
-                <img src="img/logos/menshealth.svg" />
-                <img src="img/logos/mrbeast.svg" />
+                <img src="img/logos/ANDREA GIGENA ENVIAR.png" />
+                <img src="img/logos/d_g.png" />
+                <img src="img/logos/descarga.png" />
+                <img src="img/logos/g2-logo-blanco.png" />
+                <img src="img/logos/Huggies-logo.png" />
+                <img src="img/logos/Logo (1).png" />
+                <img src="img/logos/Logo MARIA MARIA.png" />
+                <img src="img/logos/LOGO Quality 90.5 Negro (1).png" />
+                <img src="img/logos/LOGO VIDON fondo transparente.png" />
+                <img src="img/logos/Logo zoom 2048.png" />
+                <img src="img/logos/logo.png" />
+                <img src="img/logos/logo-fcq-portada-4.png" />
+                <img src="img/logos/MG NEGATIVO NEGRO.png" />
+                <img src="img/logos/kimberly.png" />
+                <img src="img/logos/ryserrunners.png" />
+
             </div>
         </div>
 
@@ -348,16 +372,39 @@
 
                     <div class="card mx-auto rounded-4" style="max-width: 24.5rem;">
                         <div class="ratio ratio-16x9">
-                            <iframe width="560" height="315"
-                                src="https://www.youtube.com/embed/PwCg2CPKQ2c?si=Byub6Nv8nLTmbnmu"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen></iframe>
+                            <a class="text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                ACA VA UNA IMAGEN DE VIDEO: HACER CLICK
+                            </a>
+                            
                         </div>
                         <div class="card-body">
                             <h5 class="card-title text-center">Comunicación cortita y al pie</h5>
                             <p class="card-text"></p>
                         </div>
+
+                        <div class="modal fade-center" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content" style="height: 400px;"> 
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalLabel">Comunicacion cortita y al pie</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body text-center">
+
+                                    <iframe width="100%" height="80%"
+                                    src="https://www.youtube.com/embed/PwCg2CPKQ2c?si=Byub6Nv8nLTmbnmu"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>  
+
+                                    ACA VA UN TEXTO PERSONALIZADO / PUEDE SER VIDEO HORIZONTAL O VERTICAL<br>
+                                    <a href="#"> IR A YOUTUBE ></a>                                   
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
                     </div>
 
                     <br>
@@ -414,7 +461,49 @@
 
     <footer class="py-5" id="final">
 
+        <div class="container">
+            <div class="p-5 text-center bg-body rounded-3" style="border: 1px #d2d2d2 solid;">
+                <div class="row g-5">
+                    <h4 class="mb-3">No dudes en enviarme un mensaje</h4>
+        
+            <div class="col-md-6 col-lg-6">
+        
+                <div class="row g-3">
 
+                    <div class="col-12">
+                      <label for="firstName" class="form-label">Nombre</label>
+                      <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                    </div>
+        
+                    <div class="col-12">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="hola@ejemplo.com">
+                    </div>
+
+                  </div>
+        
+            </div>
+        
+            <div class="col-md-6 col-lg-6">
+                <div class="col-12">
+                    <label for="lastName" class="form-label">Mensaje</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                </div>
+        
+                   <br>
+        
+            </div>     
+            
+            </div>
+            <a href="https://api.whatsapp.com/message/32ES7KUOOJEDE1?autoload=1&app_absent=0"
+            class="ov-btn-grow-ellipse">Enviar</a>  
+            </div>
+        </div>
+
+
+
+
+        
 
         <div class="container">
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">

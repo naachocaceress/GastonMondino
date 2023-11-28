@@ -1,18 +1,5 @@
-
-// window.addEventListener('scroll', function() {
-//     let header = document.getElementById('header');
-//     let boca = this.document.getElementById("wave")
-//     let scrollPosition = window.scrollY
-//     let scrollPositionboca = boca.offsetTop
-//     if (scrollPosition >= scrollPositionboca) { // Cambia el valor según cuánto quieras que se desplace antes de cambiar el color
-//       header.style.backgroundColor = "rgba(128, 128, 128, 0.096)";
-//     } else {
-//       header.style.backgroundColor = "whitesmoke"; // Cambia de nuevo al color original
-//     }
-//   });
-
 window.addEventListener('scroll', function() {
-  var header = document.querySelector('header');
+  var header = document.querySelector('.navbar');
   if (window.scrollY > 0) {
     header.style.boxShadow = "0 2px 5px rgba(0, 0, 0, 0.1)"; // Agrega un borde inferior cuando el scroll es mayor que 0
   } else {
@@ -21,7 +8,17 @@ window.addEventListener('scroll', function() {
 });
 
 
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
 
+
+        window.onload = function() {
+          document.querySelector("#left .inicio").style.transform = "translateX(0)";
+          document.querySelector("#right .inicio").style.transform = "translateX(0)";
+        };
+        
 
 const scrollers = document.querySelectorAll(".scroller");
 
