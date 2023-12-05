@@ -1,0 +1,114 @@
+<header id="header">
+
+    <nav class="navbar navbar-expand-lg bg-body fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img id="logo" src="../img/LOGO GM NEGRO.png" alt="Logo"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body text-center textoNavbar">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link" href="/index.html">Inicio</a>
+              </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/blog.html">Blog</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/servicios.html">Servicios</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/acercademi.html">Acerca de mí</a>
+              </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+</header>
+
+<style>
+
+@media (max-width: 990px) {
+  .textoNavbar{
+  font-size: 25px;
+}
+}
+
+    #logo {
+  width: 8rem; /* Establece el ancho máximo del logo */
+  margin: 0;
+}
+
+.navbar-nav .nav-link {
+  color: black;
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ef8024;
+}
+
+.navbar-nav a {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  color: #ef8024;
+}
+
+.navbar-nav a:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: #ef8024;
+  transition: left 0.3s;
+
+}
+
+.navbar-nav a:hover:after {
+  left: 0;
+}
+
+.navbar .current:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #ef8024;
+  transition: none;
+}
+
+.nav-item:not(:last-child) {
+  margin-right: 10px; /* Puedes ajustar el valor según el espacio que desees */
+}
+
+
+</style>
+
+<script>
+  // Obtén la URL de la página actual
+var url = window.location.href;
+
+// Obtén todos los enlaces del menú de navegación
+var links = document.querySelectorAll('.navbar-nav a');
+
+// Recorre todos los enlaces
+for (var i = 0; i < links.length; i++) {
+  // Si la URL del enlace coincide con la URL de la página actual
+  if (links[i].href === url) {
+    // Agrega la clase 'current' al enlace
+    links[i].classList.add('current');
+  }
+}
+</script>

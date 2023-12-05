@@ -1,23 +1,3 @@
-@charset "UTF-8";
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Fedra";
-  background-color: white /*#f6f7f9*/;
-}
-
-@font-face {
-  font-family: 'Fedra';
-  src: url('/assets/Fedra/FedraSansPro-Normal.woff') format('truetype');
-  /* Otras fuentes web (woff, woff2) deberían definirse aquí también si las tienes */
-}
-
-@font-face {
-  font-family: 'Averta';
-  src: url('/assets/Averta/AvertaDemoPECuttedDemo-Regular.otf') format('truetype');
-  /* Otras fuentes web (woff, woff2) deberían definirse aquí también si las tienes */
-}
-
 @media (min-width: 770px) {
   .my-custom-class {
     height: 100vh;
@@ -33,58 +13,10 @@ body {
   .coete{
     font-size: 1rem;
   }
-}
 
-#logo {
-  width: 8rem; /* Establece el ancho máximo del logo */
-  margin: 0;
-}
-
-.navbar-nav .nav-link {
-  color: black;
-  font-weight: bold;
-}
-
-.navbar-nav .nav-link:hover {
-  color: #ef8024;
-}
-
-.navbar-nav a {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-  color: #ef8024;
-}
-
-.navbar-nav a:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: -100%;
-  width: 100%;
-  height: 2px;
-  background: #ef8024;
-  transition: left 0.3s;
-
-}
-
-.navbar-nav a:hover:after {
-  left: 0;
-}
-
-.navbar .current:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: #ef8024;
-  transition: none;
-}
-
-.nav-item:not(:last-child) {
-  margin-right: 10px; /* Puedes ajustar el valor según el espacio que desees */
+  .chevron{
+    display: none;
+  }
 }
 
 /*----------------------------------------------------------------------------*/
@@ -118,54 +50,6 @@ body {
   transform: translateX(100%);
 }
 
-
-
-#btncontacto {
-  color: #ef8024;
-  border-radius: 30px;
-}
-
-/*** ESTILOS BOTÓN GROW ELLIPSE ***/
-.ov-btn-grow-ellipse {
-  background: #ef8024; /* color de fondo */
-  color: white; /* color de fuente */
-  padding: 10px 20px;
-  border-radius: 30px; /* redondear bordes */
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  display: inline-block;
-  text-decoration: none;
-  font-size: 20px;
-  border: 2px solid white;
-}
-
-.ov-btn-grow-ellipse:hover {
-  color: #ef8024; /* color de fuente hover */
-  border: 2px solid #ef8024;
-}
-
-.ov-btn-grow-ellipse::after {
-  content: "";
-  background: white; /* color de fondo hover */
-  position: absolute;
-  z-index: -1;
-  padding: 16px 20px;
-  display: block;
-  border-radius: 50%;
-  left: -50%;
-  right: -50%;
-  top: -150%;
-  bottom: -150%;
-  transform: scale(0, 0);
-  transition: all 0.4s ease;
-}
-
-.ov-btn-grow-ellipse:hover::after {
-  transition: all 0.6s ease-out;
-  transform: scale(1, 1);
-}
-
 /*----------------------------------------------------------------------------*/
 
 .container1 {
@@ -174,6 +58,75 @@ body {
 
 iframe {
   border-radius: 15px; /* Esquina superior izquierda redondeada */
+}
+
+.containerArrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 150px;
+  position: absolute;
+  z-index: 7;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.chevron {
+  position: absolute;
+  width: 1.2rem;
+  height: 0.3rem;
+  opacity: 0;
+  transform: scale(0.3);
+  animation: move-chevron 3s ease-out infinite;
+}
+
+.chevron:first-child {
+  animation: move-chevron 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+  animation: move-chevron 3s ease-out 2s infinite;
+}
+
+.chevron:before,
+.chevron:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  background: black;
+}
+
+.chevron:before {
+  left: 0;
+  transform: skewY(30deg);
+}
+
+.chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skewY(-30deg);
+}
+
+@keyframes move-chevron {
+  25% {
+    opacity: 1;
+  }
+  33.3% {
+    opacity: 1;
+    transform: translateY(2.28rem);
+  }
+  66.6% {
+    opacity: 1;
+    transform: translateY(3.12rem);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(4.8rem) scale(0.5);
+  }
 }
 
 
@@ -252,31 +205,27 @@ iframe {
   transform: rotateY(180deg);
 }
 
+.click-indicator {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .click-indicator {
+    display: block;
+    animation: click 1s infinite;
+  }
+}
+
+@keyframes click {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
 
 /* Testimonios ----------------------------------------------------------------------------*/
-
-.carousel-custom-button {
-  width: 50px;
-  height: 50px;
-  border: 2px solid black; /* Borde negro de 2px */
-  border-radius: 50%; /* Borde redondeado para hacerlo circular */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: filter 0s; /* Desactiva la transición de filtro en 0 segundos */
-}
-
-/* Elimina el efecto de hover */
-.carousel-custom-button:hover {
-  filter: none; /* Establece el filtro en "none" en hover */
-}
-
-
-
-
-
-
-
 
 .wrapper {
   position: relative;
@@ -295,11 +244,16 @@ iframe {
   border-radius: 50%;
   box-shadow: 0 3px 6px rgba(0,0,0,0.23);
   transform: translateY(-50%);
-  transition: transform 0.1s linear;
+  transition: transform 0.3s ease;
   z-index: 1;
 }
+
+.wrapper i:hover{
+  transform: translateY(-50%) scale(0.90);
+}
+
 .wrapper i:active{
-  transform: translateY(-50%) scale(0.85);
+  transform: translateY(-50%) scale(0.80);
 }
 .wrapper i:first-child{
   left: -22px;
@@ -310,7 +264,7 @@ iframe {
 .wrapper .carousel{
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: calc((100% / 3) - 12px);
+  grid-auto-columns: calc((100% / 3));
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: 16px;
@@ -396,8 +350,6 @@ justify-content: initial;
 }
 
 
-
-
 /* Marcas ----------------------------------------------------------------------------*/
 
 .scroller__inner {
@@ -454,15 +406,6 @@ justify-content: initial;
   }
 }
 
-/* general styles */
-
-
-/* for testing purposed to ensure the animation lined up correctly */
-.test {
-  background: red !important;
-}
-
-
 /* Blogs ----------------------------------------------------------------------------*/
 
 #blogs{
@@ -471,14 +414,17 @@ justify-content: initial;
   background-position: center bottom ;
 }
 
+.cardSombra {
+  transition: box-shadow 0.3s ease;
+}
+
+.cardSombra:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
 /* ----------------------------------------------------------------------------*/
 
-#final{
-  background-image: url(/img/linea3.png);
-  background-repeat: no-repeat;
-  background-size: 900px;
-  background-position: 700px -50px; /* Ajusta los valores según tus necesidades */
-}
 
 @media (max-width: 576px) {
   .nav_desple {
@@ -512,16 +458,8 @@ img {
   font-size: large;
 }
 
-/*# sourceMappingURL=index.css.map */
 
 
-.b-example-divider {
-    width: 100%;
-    height: 3rem;
-    background-color: rgba(0, 0, 0, .1);
-    border: solid rgba(0, 0, 0, .15);
-    border-width: 1px 0;
-    box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, .1), inset 0 0.125em 0.5em rgba(0, 0, 0, .15);
-}
+
 
 
