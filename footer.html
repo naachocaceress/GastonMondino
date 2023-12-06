@@ -1,63 +1,78 @@
 <footer class="py-5" id="final">
 
     <div class="container">
+        <form id="myForm" action="https://formsubmit.co/comunicacion@gastonmondino.com" method="POST" />
         <div class="p-4 text-center bg-body rounded-3" style="border: 1px #d2d2d2 solid;">
             <div class="row g-5">
                 <h4 class="mb-3">Conversemos!</h4>
-    
-        <div class="col-md-6 col-lg-6">
-    
-            <div class="row g-3">
 
-                <div class="col-12">
-                  <label for="firstName" class="form-label">Nombre</label>
-                  <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-                </div>
-    
-                <div class="col-12">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="">
+                <div class="col-md-6 col-lg-6">
+
+                    <div class="row g-3">
+
+                        <div class="col-12">
+                            <label for="firstName" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="firstName" name="name" required="">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" placeholder="">
+                        </div>
+
+                    </div>
+
                 </div>
 
-              </div>
-    
-        </div>
-    
-        <div class="col-md-6 col-lg-6">
-            <div class="col-12">
-                <label for="lastName" class="form-label">Mensaje</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                <div class="col-md-6 col-lg-6">
+                    <div class="col-12">
+                        <label for="lastName" class="form-label">Mensaje</label>
+                        <textarea class="form-control" name="coments" id="exampleFormControlTextarea1" rows="5"></textarea>
+                    </div>
+
+                    <br>
+
+                </div>
+
             </div>
-    
-               <br>
-    
-        </div>     
-        
-        </div>
-        <a href="https://api.whatsapp.com/message/32ES7KUOOJEDE1?autoload=1&app_absent=0"
-        class="ov-btn-grow-ellipse verde">Enviar</a>  
+            <button type="submit" class="ov-btn-grow-ellipse verde">
+                <span class="button-text">Enviar</span>
+                <span class="spinner-border" aria-hidden="true" style="display: none;"></span>
+            </button>
+            <input type="hidden" name="_next" value="https://gastonmondino.com/">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+
         </div>
     </div>
-
 
     <div class="container">
         <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <div class="col-md-4 d-flex align-items-center">
-                            <span class="mb-3 mb-md-0 text-body-dark">Copyright © 2023 Gastón Mondino
-            </span>
+            <div class="col-md-4 d-flex align-items-center">
+                <span class="mb-3 mb-md-0 text-body-dark">Copyright © 2023 Gastón Mondino
+                </span>
+            </div>
+
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a
+                        href="https://api.whatsapp.com/send/?phone=5493516342775&text&type=phone_number&app_absent=0"><img
+                            src="/img/iconos/whatsapp.svg" class="iconRedes"></a></li>
+                <li class="ms-3"><a href="https://www.facebook.com/gastontucoach"><img src="/img/iconos/facebook.svg"
+                            class="iconRedes"></a></li>
+                <li class="ms-3"><a href="https://www.linkedin.com/in/gastontucoach/"><img
+                            src="/img/iconos/linkedin.svg" class="iconRedes"></a></li>
+                <li class="ms-3"><a href="https://www.instagram.com/gaston_tucoach/"><img
+                            src="/img/iconos/instagram.svg" class="iconRedes"></a></li>
+                <li class="ms-3"><a href="https://www.youtube.com/channel/UC7f5RPZA6RyxcEAOJr_t7Rg"><img
+                            src="/img/iconos/youtube.svg" class="iconRedes"></a></li>
+                <li class="ms-3"><a
+                        href="https://open.spotify.com/show/2u0pdbHZpnaM1MqMt7R6Hd?si=39b28ffd73b64d14&nd=1"><img
+                            src="/img/iconos/spotify.svg" class="iconRedes"></a></li>
+                <li class="ms-3"><a href="https://www.tiktok.com/@mondino_gaston"><img src="/img/iconos/tiktok.svg"
+                            class="iconRedes"></a></li>
+
+            </ul>
         </div>
-
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a href="https://api.whatsapp.com/send/?phone=5493516342775&text&type=phone_number&app_absent=0"><img src="/img/iconos/whatsapp.svg" class="iconRedes"></a></li>
-            <li class="ms-3"><a href="https://www.facebook.com/gastontucoach"><img src="/img/iconos/facebook.svg" class="iconRedes"></a></li>
-            <li class="ms-3"><a href="https://www.linkedin.com/in/gastontucoach/"><img src="/img/iconos/linkedin.svg" class="iconRedes"></a></li>
-            <li class="ms-3"><a href="https://www.instagram.com/gaston_tucoach/"><img src="/img/iconos/instagram.svg" class="iconRedes"></a></li>
-            <li class="ms-3"><a href="https://www.youtube.com/channel/UC7f5RPZA6RyxcEAOJr_t7Rg"><img src="/img/iconos/youtube.svg" class="iconRedes"></a></li>
-            <li class="ms-3"><a href="https://open.spotify.com/show/2u0pdbHZpnaM1MqMt7R6Hd?si=39b28ffd73b64d14&nd=1"><img src="/img/iconos/spotify.svg" class="iconRedes"></a></li>
-            <li class="ms-3"><a href="https://www.tiktok.com/@mondino_gaston"><img src="/img/iconos/tiktok.svg" class="iconRedes"></a></li>
-
-        </ul>
-    </div>
     </div>
 
 
@@ -65,20 +80,29 @@
 </footer>
 
 <style>
-    #final{
-  background-image: url(/img/linea3.png);
-  background-repeat: no-repeat;
-  background-size: 900px;
-  background-position: 700px -50px; /* Ajusta los valores según tus necesidades */
-}
+    #final {
+        background-image: url(/img/linea3.png);
+        background-repeat: no-repeat;
+        background-size: 900px;
+        background-position: 700px -50px;
+        /* Ajusta los valores según tus necesidades */
+    }
 
-.iconRedes{
-    width: 25px;
-    transition: transform 0.3s ease;
-}
+    .iconRedes {
+        width: 25px;
+        transition: transform 0.3s ease;
+    }
 
-.iconRedes:hover{
-    transform: scale(0.90);
-}
-
+    .iconRedes:hover {
+        transform: scale(0.90);
+    }
 </style>
+
+<script>
+    $(document).ready(function () {
+            $('#myForm').on('submit', function (e) {
+                $('.button-text').hide(); // Oculta el texto "Guardar"
+                $('.spinner-border').show(); // Muestra el spinner
+            });
+        });
+</script>

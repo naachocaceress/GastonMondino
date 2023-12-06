@@ -14,7 +14,7 @@
             <div class="offcanvas-body text-center textoNavbar">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link" href="/index.html">Inicio</a>
+                  <a class="nav-link current" href="/index.html">Inicio</a>
               </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/blog.html">Blog</a>
@@ -97,18 +97,28 @@
 </style>
 
 <script>
-  // Obtén la URL de la página actual
+// Obtén la URL de la página actual
 var url = window.location.href;
 
 // Obtén todos los enlaces del menú de navegación
 var links = document.querySelectorAll('.navbar-nav a');
+
+// Variable para comprobar si se ha encontrado una coincidencia
+var matchFound = false;
 
 // Recorre todos los enlaces
 for (var i = 0; i < links.length; i++) {
   // Si la URL del enlace coincide con la URL de la página actual
   if (links[i].href === url) {
     // Agrega la clase 'current' al enlace
+    var homeLink = document.querySelector('.nav-item a[href="/index.html"]');
+  if (homeLink) {
+    homeLink.classList.remove('current');
+  }
     links[i].classList.add('current');
+    matchFound = true;
+    break;
   }
 }
+
 </script>
