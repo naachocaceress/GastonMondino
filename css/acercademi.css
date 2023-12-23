@@ -1,5 +1,11 @@
 .texto{
     color: #575757;
+    text-align: justify;
+}
+
+.subtitulo{
+    font-weight: bold;
+    /*color:#ef8024;*/
 }
 
 @media (min-width: 501px) {
@@ -9,6 +15,14 @@
         object-fit: cover;
         border-radius: 20px;
     }
+
+    .imgFinal{
+        width:60%; 
+    }
+
+    .image-fondo{
+        background-size: 35%;
+    }
 }
 @media (max-width: 500px) {
     .carruselImg{
@@ -17,12 +31,38 @@
         object-fit: cover;
         border-radius: 20px;
     }
+
+    .imgFinal{
+        width:100%; 
+    }
+
+    .image-fondo{
+        background-size: 85%;
+    }
 }
 
+.imagenProfe{
+    float: left;
+        width:40%; /* Ajusta este valor según tus necesidades */
+        border-radius: 20px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+}
 
+.imgFinal{
+    text-align: center;
+    border-radius: 20px;
+}
+
+.textfinal{
+    background-size: 80%;
+    background-image: url(/img/linea8.png);
+    background-repeat: no-repeat;
+    background-position: bottom ;
+}
 
 .image-fondo{
-    background-image: url(/img/linea4.png);
+    background-image: url(/img/linea.png);
     background-repeat: no-repeat;
-    background-position: top;
+    background-position: top left;
 }
