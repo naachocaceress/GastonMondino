@@ -43,15 +43,23 @@
 
 .imagenProfe{
     float: left;
-        width:40%; /* Ajusta este valor según tus necesidades */
+        width:27%; /* Ajusta este valor según tus necesidades */
         border-radius: 20px;
         margin-right: 20px;
         margin-bottom: 20px;
 }
 
-.imgFinal{
-    text-align: center;
+.activ{
     border-radius: 20px;
+    width: 50vh; 
+    padding-left: 25px;
+    margin: 10px;
+    float: right;
+}
+
+.imgFinal{
+    border-radius: 20px;
+    width:85%;
 }
 
 .textfinal{
