@@ -53,18 +53,7 @@ AOS.init();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+// AVERIGUAR PARA QUE SIRVE ESTE CODIGO 
 
 const wrapper = document.querySelector(".wrapper");
 const carousel = document.querySelector(".carousel");
