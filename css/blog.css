@@ -1,0 +1,8 @@
+.prueba {
+    background-image: url(/img/imgSinCopy/blog3.jpg);
+    width: 100%; /* 100% del ancho de la ventana */
+    height: 100%; /* 100% de la altura de la ventana */
+    background-size: cover; /* ajusta la imagen manteniendo su relación de aspecto y cubriendo el contenedor */
+    background-position: center; /* centra la imagen */
+    background-repeat: no-repeat; /* evita que la imagen se repita */
+}
