@@ -79,6 +79,7 @@ html{
   /* -- */
 
   .linkAPagina{
+    padding: 5px;
     color:#20a49c; 
     transition: transform 0.3s ease;
   }
@@ -98,3 +99,40 @@ html{
     box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, .1), inset 0 0.125em 0.5em rgba(0, 0, 0, .15);
 }
 
+  /* -- */
+
+
+  .tarjetaBlog {
+    height: 260px; /* Altura máxima deseada */
+}
+
+.tarjetaTexto {
+    overflow: hidden;
+}
+
+.tituloH{
+    text-overflow: ellipsis; /* Agrega los puntos suspensivos */
+    display: -webkit-box; /* Necesario para que funcione 'line-clamp' */
+    -webkit-line-clamp: 2; /* '3' es el número de líneas de texto que quieres mostrar */
+    -webkit-box-orient: vertical; /* Necesario para que funcione 'line-clamp' */
+}
+
+.textoP {
+    overflow: hidden;
+    line-height: 20px; /* Altura de línea */
+    text-overflow: ellipsis; /* Agrega los puntos suspensivos */
+    display: -webkit-box; /* Necesario para que funcione 'line-clamp' */
+    -webkit-line-clamp: 3; /* '3' es el número de líneas de texto que quieres mostrar */
+    -webkit-box-orient: vertical; /* Necesario para que funcione 'line-clamp' */
+}
+
+
+.tarjetaImagen{
+    max-width: 230px;
+}
+
+.imagenImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
