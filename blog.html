@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="../css/blog.css" />
     <link rel="stylesheet" href="/css/estilos.css">
 
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
         $(function () {
@@ -45,27 +48,36 @@
 
     <main class="container">
 
-        <div class="p-4 p-md-5 mb-4 rounded-4 text-body-emphasis bg-body-secondary prueba">
-            <div class="col-lg-6 px-0">
-                <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
-                <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and
-                    efficiently about what’s most interesting in this post’s contents.</p>
-                <p class="lead mb-0 linkAPagina"><a href="#" class="text-body-emphasis fw-bold">Continuar leyendo</a></p>
+        <div class="blogsImportantes">
+
+        <div class="p-4 p-md-5 mb-4 rounded-4 text-body-emphasis principal" data-aos="fade" data-aos-duration="1500">
+            <div class="col-lg-6 px-0" style="color: white;">
+                <h1 class="display-4 fst-italic">Donde está tu atención, está tu energía</h1>
+                <p class="lead my-3">Te pregunto y me pregunto, ¿la atención que estas teniendo y que se lleva gran
+                    parte de tu energía está donde queres que esté? 😏</p>
+                <p class="lead mb-0 linkAPaginaBlog"><a href="#" class="linkAPaginaBlog fw-bold">Continuar
+                        leyendo</a><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                        class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
+                    </svg></p>
             </div>
         </div>
 
         <div class="row mb-2">
 
-            <div class="col-md-6"> <br>                
-                <div class="tarjetaBlog row g-0 border rounded-4 overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" 
+            <div class="col-md-6" data-aos="fade-right"> <br>
+                <div class="tarjetaBlog row g-0 border rounded-4 overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
                     style="background-color: white;">
                     <div class="tarjetaTexto col p-4 d-flex flex-column position-static">
                         <strong class="d-inline-block mb-2 text-success-emphasis">Coaching</strong>
                         <h3 class="tituloH mb-0">Conversaciones Poderosas
                         </h3>
-                        <div class="mb-1 text-body-secondary">Nov 11</div>
+                        <div class="mb-1 text-body-secondary">Ene 5</div>
                         <p class="textoP mb-auto">
-                            &nbsp; Mirar nuestra identidad sin mirar nuestro entorno es perderse de una gran posibilidad de registro de porque hacemos lo que hacemos, decimos lo que decimos y sentimos lo que sentimos.
+                            &nbsp; Mirar nuestra identidad sin mirar nuestro entorno es perderse de una gran posibilidad
+                            de registro de porque hacemos lo que hacemos, decimos lo que decimos y sentimos lo que
+                            sentimos.
                         </p>
                         <a href="#" class="linkAPagina">Continuar Leyendo</a>
                     </div>
@@ -74,16 +86,18 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="col-md-6"> <br>                
-                <div class="tarjetaBlog row g-0 border rounded-4 overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" 
+
+            <div class="col-md-6" data-aos="fade-left"> <br>
+                <div class="tarjetaBlog row g-0 border rounded-4 overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
                     style="background-color: white;">
                     <div class="tarjetaTexto col p-4 d-flex flex-column position-static">
                         <strong class="d-inline-block mb-2 text-success-emphasis">Interes</strong>
                         <h3 class="tituloH mb-0">Comunicacion efectiva</h3>
-                        <div class="mb-1 text-body-secondary">Nov 12</div>
+                        <div class="mb-1 text-body-secondary">Ene 3</div>
                         <p class="textoP mb-auto">
-                            &nbsp; Es muy común hoy en día estar atravesado por múltiples distracciones, infinidad de obstáculos e innumerables inconvenientes que nos permitan entregarnos de lleno a la conversación con alguien
+                            &nbsp; Es muy común hoy en día estar atravesado por múltiples distracciones, infinidad de
+                            obstáculos e innumerables inconvenientes que nos permitan entregarnos de lleno a la
+                            conversación con alguien
                         </p>
                         <a href="#" class="linkAPagina">Continuar Leyendo</a>
                     </div>
@@ -95,7 +109,146 @@
 
         </div>
 
-        
+        </div>
+
+        <br>
+
+        <div class="row mb-2">
+
+            <div class="col-md-8">
+                <h3 class="pb-4 mb-4 fst-italic border-bottom">
+                    Últimas entradas
+                </h3>
+
+                <article class="blog-post">
+                    <h2 class="display-5 link-body-emphasis mb-1">Sostener el hábito, hasta que el hábito te sostenga a
+                        vos</h2>
+                    <p class="blog-post-meta">Diciembre 8, 2023</p>
+
+                    <div class="cuerpoBlog">
+                        <p>¿Por qué el hábito es algo crucial es nuestra vida, en nuestro dia a dia?</p>
+                        <p>En nuestra evolución nos ha permitido, entre otras cosas, adaptarnos al entorno, transmitir
+                            acervos de generación a generación, generar comunidad, enfrentar y disminuir algo que hoy
+                            nos sucede mucho, el miedo a la incertidumbre.</p>
+                        <p>Sin dudas, somos animales de hábitos y costumbres, algunas potenciadoras y otras que limitan
+                            nuestro potencial o aquello que queremos lograr.</p>
+                        <p>Trabajar sobre los hábitos, es trabajar la identidad de quienes estamos siendo en el aquí
+                            ahora, que resultados estamos obteniendo, y quienes necesitamos ser en adelante para lograr
+                            eso diferente que visualizamos a futuro.</p>
+                        <p>Contame ¿Son consciente de tus hábitos potenciadores y de aquellos que no lo son tanto?</p>
+                    </div>
+
+                    <div class="d-flex p-2" style="justify-content: flex-end;">
+                        <a href="#" class="linkAPagina">Continuar Leyendo</a>
+                    </div>
+                </article>
+
+                <hr>
+
+                <article class="blog-post">
+                    <h2 class="display-5 link-body-emphasis mb-1">Lo que te rodea define tu identidad</h2>
+                    <p class="blog-post-meta">Diciembre 2, 2023</p>
+
+                    <div class="cuerpoBlog">
+                        <p>¿Cuánto de tu entorno hay en tu identidad? ¿Cuanto tuyo hay en tu entorno? 🙂</p>
+                        <p>Mirar nuestra identidad sin mirar nuestro entorno es perderse de una gran posibilidad de
+                            registro de porque hacemos lo que hacemos, decimos lo que decimos y sentimos lo que
+                            sentimos. 🤝</p>
+                        <p>No es determinante pero si condicionante y eso nos da la posibilidad de poder cambiar lo que
+                            haya que cambiar, adaptarnos y construirnos en las relaciones desde la coherencia entre
+                            nuestro pensar, sentir y hacer. ☑</p>
+                        <p>Sin dudas, nuestro autoestima, nuestra autopercepción no solo nos pertenece a nosotros sino
+                            que deberemos mirarla desde un prisma relacional, cultural, social y experiencial porque
+                            somos con otros, siempre. 🔄</p>
+                    </div>
+
+                    <div class="d-flex p-2" style="justify-content: flex-end;">
+                        <a href="#" class="linkAPagina">Continuar Leyendo</a>
+                    </div>
+                </article>
+
+                <hr>
+
+                <article class="blog-post">
+                    <h2 class="display-5 link-body-emphasis mb-1">¿Cuánto presente hay en tu escucha? 🤔</h2>
+                    <p class="blog-post-meta">Noviembre 3, 2023</p>
+
+                    <div class="cuerpoBlog">
+                        <p>Es muy común hoy en día estar atravesado por múltiples distracciones, infinidad de obstáculos
+                            e innumerables inconvenientes que nos permitan entregarnos de lleno a la conversación con
+                            alguien 🥲</p>
+                        <p>Para que la comunicación sea realmente efectiva no solo debemos hablar sino que antes que
+                            nada debemos aprender a escuchar</p>
+                        <p>Sin dudas, el contexto es clave y escucharse es uno de los grandes desafíos que tenemos hoy
+                            en día para poder crecer en la relación con los demás 💪🏽</p>
+                        <p>¿Qué opinas? Te leo 🙌🏽</p>
+                    </div>
+
+                    <div class="d-flex p-2" style="justify-content: flex-end;">
+                        <a href="#" class="linkAPagina">Continuar Leyendo</a>
+                    </div>
+                </article>
+
+                <hr>
+
+                <nav class="blog-pagination text-center" aria-label="Pagination">
+                    <a href="#"
+                    class="ov-btn-grow-ellipse">Ver más</a>
+                </nav>
+
+            </div>
+
+            <div class="col-md-4 d-none d-md-block" style="padding-left: 80px;"><br><br>
+
+                <h4 class="fst-italic border-bottom">Últimos videos</h4>
+
+                <div class="card mx-auto rounded-4 cardSombra" style="max-width: 24rem;" data-aos="fade-left">
+                    <div class="ratio ratio-16x9">
+                        <a href="https://www.youtube.com/watch?v=PwCg2CPKQ2c"><img src="/img/miniaturaYoutube.jpg"
+                                class="rounded-4"></a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Comunicación cortita y al pie 🚀</h5>
+                        <p class="card-text">A la hora de comunicar tu mensaje, tu marca o algo...</p>
+                        <a href="https://www.youtube.com/watch?v=PwCg2CPKQ2c" class="card-text linkAPagina">Ver
+                            video</a>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="card mx-auto rounded-4 cardSombra" style="max-width: 24rem;" data-aos="fade-left">
+                    <div class="ratio ratio-16x9">
+                        <a href="https://www.youtube.com/watch?v=TOtl9kiILAo"><img src="/img/miniaturaYoutube2.jpg"
+                                class="rounded-4"></a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">¿Practicamos? Vamos juntos</h5>
+                        <p class="card-text">Se que hablar de comunicación hoy en dia es todo un desafío...</p>
+                        <a href="https://www.youtube.com/watch?v=TOtl9kiILAo" class="card-text linkAPagina">Ver
+                            video</a>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="card mx-auto rounded-4 cardSombra" style="max-width: 24rem;" data-aos="fade-left">
+                    <div class="ratio ratio-16x9">
+                        <a href="https://www.youtube.com/watch?v=1b9pD2MZuQc"><img src="/img/miniaturaYoutube3.jpg"
+                                class="rounded-4"></a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Descubramos juntos el apasionante mundo de la
+                            comunicación </h5>
+                        <p class="card-text">Quiero que armemos juntos esta comunidad de aprendizaje.</p>
+                        <a href="https://www.youtube.com/watch?v=1b9pD2MZuQc" class="card-text linkAPagina">Ver
+                            video</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
 
     </main>
 

@@ -1,5 +1,10 @@
-.prueba {
-    background-image: url(/img/imgSinCopy/blog3.jpg);
+.blogsImportantes{
+    background-image: url(/img/linea7.png);
+    background-repeat: no-repeat;
+    background-position: center;}
+
+.principal {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(/img/imgSinCopy/blog3.jpg);
     width: 100%; /* 100% del ancho de la ventana */
     height: 100%; /* 100% de la altura de la ventana */
     background-size: cover; /* ajusta la imagen manteniendo su relación de aspecto y cubriendo el contenedor */
@@ -7,6 +12,39 @@
     background-repeat: no-repeat; /* evita que la imagen se repita */
 }
 
+/* -- */
 
+.linkAPaginaBlog{
+    padding: 5px;
+    color:white; 
+    transition: transform 0.3s ease;
+}
+
+.linkAPaginaBlog:hover{
+    transform: scale(0.95);
+}
+
+/* -- */
+
+.cuerpoBlog {
+    display: -webkit-box; /* Necesario para usar -webkit-line-clamp */
+    -webkit-line-clamp: 6; /* Limita el contenido a 5 líneas */
+    -webkit-box-orient: vertical; /* Necesario para usar -webkit-line-clamp */
+    overflow: hidden; /* Esconde el contenido que excede el límite de líneas */
+    text-overflow: ellipsis; /* Agrega los puntos suspensivos al final de la última línea */
+
+    text-align: justify;
+}
+
+.blog-post-meta{
+    color: gray;
+}
+
+/* -- */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
 
 
