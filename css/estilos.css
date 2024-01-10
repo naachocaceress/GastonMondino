@@ -1,13 +1,16 @@
 @charset "UTF-8";
+
 body {
   margin: 0;
   padding: 0;
   font-family: "Fedra";
-  background-color: white /*#f6f7f9*/;
+  background-color: white /*#f6f7f9*/
+  ;
   overflow-x: hidden;
 
 }
-html{
+
+html {
   overflow-x: hidden;
 
 }
@@ -15,128 +18,135 @@ html{
 @font-face {
   font-family: 'Fedra';
   src: url('/assets/Fedra/FedraSansPro-Normal.woff') format('truetype');
-  /* Otras fuentes web (woff, woff2) deberían definirse aquí también si las tienes */
 }
 
 @font-face {
   font-family: 'Averta';
   src: url('/assets/Averta/AvertaDemoPECuttedDemo-Regular.otf') format('truetype');
-  /* Otras fuentes web (woff, woff2) deberían definirse aquí también si las tienes */
+}
+
+@media (min-width: 770px) {
+  .textoP {
+    line-height: 20px;
+  }
+}
+
+@media (max-width: 769.98px) {
+
 }
 
 /* -- */
-  
-  /*** ESTILOS BOTÓN GROW ELLIPSE ***/
-  .ov-btn-grow-ellipse {
-    background: #ef8024; /* color de fondo */
-    color: white; /* color de fuente */
-    padding: 10px 20px;
-    border-radius: 30px; /* redondear bordes */
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    display: inline-block;
-    text-decoration: none;
-    font-size: 20px;
-    border: 2px solid white;
-  }
-  
-  .ov-btn-grow-ellipse:hover {
-    color: #ef8024; /* color de fuente hover */
-    border: 2px solid #ef8024;
-  }
-  
-  .ov-btn-grow-ellipse::after {
-    content: "";
-    background: white; /* color de fondo hover */
-    position: absolute;
-    z-index: -1;
-    padding: 16px 20px;
-    display: block;
-    border-radius: 50%;
-    left: -50%;
-    right: -50%;
-    top: -150%;
-    bottom: -150%;
-    transform: scale(0, 0);
-    transition: all 0.4s ease;
-  }
-  
-  .ov-btn-grow-ellipse:hover::after {
-    transition: all 0.6s ease-out;
-    transform: scale(1, 1);
-  }
 
-  .ov-btn-grow-ellipse.verde {
-    background: #20a49c; /* color de fondo */
+/*** ESTILOS BOTÓN GROW ELLIPSE ***/
+.ov-btn-grow-ellipse {
+  background: #ef8024;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 20px;
+  border: 2px solid white;
+}
+
+.ov-btn-grow-ellipse:hover {
+  color: #ef8024;
+  border: 2px solid #ef8024;
+}
+
+.ov-btn-grow-ellipse::after {
+  content: "";
+  background: white;
+  position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  border-radius: 50%;
+  left: -50%;
+  right: -50%;
+  top: -150%;
+  bottom: -150%;
+  transform: scale(0, 0);
+  transition: all 0.4s ease;
+}
+
+.ov-btn-grow-ellipse:hover::after {
+  transition: all 0.6s ease-out;
+  transform: scale(1, 1);
+}
+
+.ov-btn-grow-ellipse.verde {
+  background: #20a49c;
 }
 
 .ov-btn-grow-ellipse.verde:hover {
-    color: #20a49c; /* color de fuente hover */
-    border: 2px solid #20a49c;
+  color: #20a49c;
+  border: 2px solid #20a49c;
 }
 
-  /* -- */
+/* -- */
 
-  .linkAPagina{
-    padding: 5px;
-    color:#20a49c; 
-    transition: transform 0.3s ease;
-  }
-
-  .linkAPagina:hover{
-    transform: scale(0.95);
-  }
-
-  /* -- */
-
-  .b-example-divider {
-    width: 100%;
-    height: 3rem;
-    background-color: rgba(0, 0, 0, .1);
-    border: solid rgba(0, 0, 0, .15);
-    border-width: 1px 0;
-    box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, .1), inset 0 0.125em 0.5em rgba(0, 0, 0, .15);
+.linkAPagina {
+  padding: 5px;
+  color: #20a49c;
+  transition: transform 0.3s ease;
 }
 
-  /* -- */
+.linkAPagina:hover {
+  transform: scale(0.95);
+}
 
-  .tarjetaBlog {
-    height: 260px; /* Altura máxima deseada */
+/* -- */
+
+.b-example-divider {
+  width: 100%;
+  height: 3rem;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, .1), inset 0 0.125em 0.5em rgba(0, 0, 0, .15);
+}
+
+/* -- */
+
+.tarjetaBlog {
+  height: 260px;
 }
 
 .tarjetaTexto {
-    overflow: hidden;
+  overflow: hidden;
 }
 
-.tituloH{
-    text-overflow: ellipsis; /* Agrega los puntos suspensivos */
-    display: -webkit-box; /* Necesario para que funcione 'line-clamp' */
-    -webkit-line-clamp: 2; /* '3' es el número de líneas de texto que quieres mostrar */
-    -webkit-box-orient: vertical; /* Necesario para que funcione 'line-clamp' */
+.tituloH {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .textoP {
-    overflow: hidden;
-    line-height: 20px; /* Altura de línea */
-    text-overflow: ellipsis; /* Agrega los puntos suspensivos */
-    display: -webkit-box; /* Necesario para que funcione 'line-clamp' */
-    -webkit-line-clamp: 3; /* '3' es el número de líneas de texto que quieres mostrar */
-    -webkit-box-orient: vertical; /* Necesario para que funcione 'line-clamp' */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 
-.tarjetaImagen{
-    max-width: 230px;
+.tarjetaImagen {
+  max-width: 230px;
 }
 
 .imagenImg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-  /* -- */
+/* -- */
 
 .cardSombra {
   transition: box-shadow 0.3s ease;

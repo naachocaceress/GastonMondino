@@ -1,7 +1,13 @@
+@media (min-width: 990px) {
+    .ultiVideos{
+        padding-left: 80px;
+    }
+}
+
 .blogsImportantes{
-    background-image: url(/img/linea7.png);
+    background-image: url(/img/linea73.png);
     background-repeat: no-repeat;
-    background-position: center;}
+    background-position: top center;}
 
 .principal {
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(/img/imgSinCopy/blog3.jpg);
