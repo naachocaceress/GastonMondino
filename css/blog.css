@@ -34,7 +34,7 @@
 
 .cuerpoBlog {
     display: -webkit-box; /* Necesario para usar -webkit-line-clamp */
-    -webkit-line-clamp: 6; /* Limita el contenido a 5 líneas */
+    -webkit-line-clamp: 7; /* Limita el contenido a 5 líneas */
     -webkit-box-orient: vertical; /* Necesario para usar -webkit-line-clamp */
     overflow: hidden; /* Esconde el contenido que excede el límite de líneas */
     text-overflow: ellipsis; /* Agrega los puntos suspensivos al final de la última línea */

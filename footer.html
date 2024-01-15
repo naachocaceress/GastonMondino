@@ -27,7 +27,8 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="col-12">
                         <label for="lastName" class="form-label">Mensaje</label>
-                        <textarea class="form-control" name="coments" id="exampleFormControlTextarea1" rows="5"></textarea>
+                        <textarea class="form-control" name="coments" id="exampleFormControlTextarea1"
+                            rows="5"></textarea>
                     </div>
 
                     <br>
@@ -80,12 +81,16 @@
 </footer>
 
 <style>
+    @media (min-width: 770px) {
+        #final {
+            background-position: 700px -50px;
+        }
+    }
+
     #final {
         background-image: url(/img/linea3.png);
         background-repeat: no-repeat;
         background-size: 900px;
-        background-position: 700px -50px;
-        /* Ajusta los valores según tus necesidades */
     }
 
     .iconRedes {
@@ -100,9 +105,9 @@
 
 <script>
     $(document).ready(function () {
-            $('#myForm').on('submit', function (e) {
-                $('.button-text').hide(); // Oculta el texto "Guardar"
-                $('.spinner-border').show(); // Muestra el spinner
-            });
+        $('#myForm').on('submit', function (e) {
+            $('.button-text').hide(); // Oculta el texto "Guardar"
+            $('.spinner-border').show(); // Muestra el spinner
         });
+    });
 </script>
