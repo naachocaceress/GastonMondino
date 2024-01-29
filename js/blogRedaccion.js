@@ -10,10 +10,20 @@ tinymce.init({
 	plugins: 'image lists advlist fullscreen emoticons insertdatetime media table wordcount autolink link preview',
 });
 
-const formulario = document.getElementById('formulario');
-formulario.addEventListener('submit', (e) => {
-	e.preventDefault();
+function guardarContenido() {
+    const contenido = tinymce.activeEditor.getContent();
 
-	const contenido = tinymce.activeEditor.getContent();
-	console.log(contenido);
-});
+    // Enviar el contenido al servidor usando AJAX
+    const xhr = new XMLHttpRequest();
+	//xhr.open('POST', 'php/guardar_contenido.php', true);
+    xhr.open('POST', 'http://localhost/GastonPage/php/guardar_contenido.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            // Manejar la respuesta del servidor si es necesario
+            console.log(xhr.responseText);
+        }
+    };
+    xhr.send('contenido=' + encodeURIComponent(contenido));
+}
+
