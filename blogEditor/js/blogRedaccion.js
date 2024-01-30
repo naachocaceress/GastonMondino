@@ -1,3 +1,18 @@
+function mostrarImagenPreview() {
+    var input = document.getElementById('imagen');
+    var preview = document.getElementById('imagen-preview');
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            preview.innerHTML = '<img class="imgP" src="' + e.target.result + '" alt="Vista previa de la imagen">';
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
 tinymce.init({
 	selector: '#editor',
 	toolbar_mode: 'sliding',
@@ -16,7 +31,7 @@ function guardarContenido() {
     // Enviar el contenido al servidor usando AJAX
     const xhr = new XMLHttpRequest();
 	//xhr.open('POST', 'php/guardar_contenido.php', true);
-    xhr.open('POST', 'http://localhost/GastonPage/php/guardar_contenido.php', true);
+    xhr.open('POST', 'http://localhost/GastonPage/blogEditor/php/guardar_contenido.php', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {

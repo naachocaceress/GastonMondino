@@ -1,10 +1,17 @@
-
+body{
+	background: #f8fafb !important;
+}
 .formulario {
+	width: 100%;
+	max-width: 1200px;
+	margin: 40px auto;
+	padding: 10px;
+
+	background-color: #f8fafb;
 	border-radius: 5px;
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-	padding: 10px;
 }
 
 .custom-btn {
@@ -23,4 +30,23 @@
 .custom-btn:hover {
 	background: white;
 	color: #20a49c;
+}
+
+.contImg{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#imagen-preview {
+	width: 300px;
+	height: 200px;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+}
+
+.imgP{
+	width: 300px;
+	height: 200px;
+	border-radius: 10px;
 }
