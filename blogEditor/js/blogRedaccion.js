@@ -26,19 +26,36 @@ tinymce.init({
 });
 
 function guardarContenido() {
+    const titulo = document.getElementById('titulo').value;
+    const imagen = document.getElementById('imagen').files[0];
     const contenido = tinymce.activeEditor.getContent();
 
-    // Enviar el contenido al servidor usando AJAX
+    // Verificar que el título y la imagen no estén vacíos
+    if (!titulo.trim()) {
+        alert('Falta seleccionar un titulo.');
+        return;
+    }
+    if (!imagen) {
+        alert('Falta seleccionar una imagen.');
+        return;
+    }
+
+    // Crear un objeto FormData y agregar el título, contenido e imagen
+    const formData = new FormData();
+    formData.append('titulo', titulo);
+    formData.append('contenido', contenido);
+    formData.append('imagen', imagen);
+
+    // Enviar el contenido, título e imagen al servidor usando AJAX
     const xhr = new XMLHttpRequest();
-	//xhr.open('POST', 'php/guardar_contenido.php', true);
     xhr.open('POST', 'http://localhost/GastonPage/blogEditor/php/guardar_contenido.php', true);
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            // Manejar la respuesta del servidor si es necesario
             console.log(xhr.responseText);
         }
     };
-    xhr.send('contenido=' + encodeURIComponent(contenido));
+    xhr.send(formData);
 }
+
+
 

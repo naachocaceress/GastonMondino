@@ -1,0 +1,45 @@
+.contenidoTotal{
+    padding: 50px;
+
+}
+
+.contPrincipal {
+    text-align: center;
+}
+
+.tituloPrincipal {
+    text-align: left;
+    font-size: 3.5em;
+    /* Tamaño relativo al tamaño de fuente del navegador */
+    font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+    .tituloPrincipal {
+        font-size: 9vw;
+        /* Tamaño relativo al ancho de la pantalla para dispositivos móviles */
+    }
+}
+
+.linkAInsta {
+    color: #20a49c;
+}
+
+.horarioPrincipal {
+    text-align: left;
+}
+
+.imagenPrincipal {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.cuerpoBlog{
+    font-weight: justify;
+}
+
+.otrosBlog{
+    padding-left: 50px;
+}
