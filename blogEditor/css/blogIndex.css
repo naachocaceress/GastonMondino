@@ -1,0 +1,24 @@
+body{
+	background: #f8fafb !important;
+}
+
+.formulario {
+	width: 100%;
+	max-width: 1200px;
+	margin: 40px auto;
+	padding: 10px;
+
+	background-color: #f8fafb;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+td, th{
+	background: #f8fafb !important;
+}
+
+img{
+    width: 100px;
+}
