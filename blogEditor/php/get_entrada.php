@@ -1,9 +1,6 @@
 <?php
 // Conexión a la base de datos
-$servername = "localhost";
-$username = "nacho";
-$password = "1234";
-$dbname = "u607022590_GastonPageBase";
+
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

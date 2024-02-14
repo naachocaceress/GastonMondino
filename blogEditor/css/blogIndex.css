@@ -1,4 +1,4 @@
-body{
+body {
 	background: #f8fafb !important;
 }
 
@@ -15,10 +15,61 @@ body{
 	gap: 10px;
 }
 
-td, th{
+td,
+th {
 	background: #f8fafb !important;
 }
 
-img{
-    width: 100px;
+img {
+	width: 100px;
+}
+
+/* -- */
+
+.dataTables_wrapper .dataTables_length label {
+	display: flex;
+	align-items: center;
+	padding-top: 10px;
+}
+
+.dataTables_wrapper .dataTables_length select {
+	margin: 10px;
+	/* Agregar un margen izquierdo para separar "Mostrar" del select */
+	width: 90px;
+}
+
+.dataTables_filter {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 10px;
+}
+
+.pagination {
+	justify-content: flex-end;
+}
+
+.dataTables_info {
+	padding: 10px;
+}
+
+.art {
+	padding-bottom: 8px;
+}
+
+/* -- */
+
+.select2-container--default .select2-selection--multiple {
+	border: 1px solid #ced4da !important;
+	border-radius: 6px !important;
+	padding: 6px !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+	margin-top: 0 !important;
+	border: 0 !important;
+	background-color: #e9ecef !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+	border: 0 !important;
 }
