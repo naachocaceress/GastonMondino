@@ -41,15 +41,56 @@
         <i class="fa fa-whatsapp my-float"></i>
     </a>
 
+    <?php
+    // Variables para almacenar los datos de la entrada
+    $titulo = "";
+    $fecha = "";
+    $imagen = "";
+    $contenido = "";
+
+    // Verificar si hay un ID en la URL
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        // Conectar a la base de datos
+        $conexion = new mysqli('localhost', 'nacho', '1234', 'u607022590_GastonPageBase');
+
+        // Comprobar si el ID existe
+        $sql = "SELECT * FROM entradas_blog WHERE id = ?";
+        $stmt = $conexion->prepare($sql);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+
+        if ($resultado->num_rows > 0) {
+            // Obtener los datos de la entrada
+            $entrada = $resultado->fetch_assoc();
+            // Obtener los datos específicos de la entrada
+            $titulo = htmlspecialchars($entrada['titulo']);
+            $fecha = htmlspecialchars($entrada['fecha_publicacion']);
+            $imagenBlob = $entrada['imagen']; // Guarda el BLOB en una variable separada
+
+            // Convertir el BLOB en una URL utilizando base64
+            $imagen = 'data:image/jpeg;base64,' . base64_encode($imagenBlob);
+            $contenido = htmlspecialchars($entrada['contenido']);
+        }
+    }
+    ?>
+
     <div class="container contenidoTotal">
         <br><br><br>
 
         <div class="text-center contPrincipal">
-            <h1 class="tituloPrincipal">4 funciones que todo móvil Xiaomi debe tener activadas en 2024</h1>
+
+            <h1 class="tituloPrincipal"><?php echo $titulo; ?></h1>
+
             <p class="horarioPrincipal">por <a class="linkAInsta"
-                    href="https://www.instagram.com/gaston_tucoach/">Gastón Mondino</a> - <span
-                    class="horayfecha">20/01/2024 22:25</span></p>
-            <img class="imagenPrincipal" src="/img/imgSinCopy/blog3.jpg">
+        href="https://www.instagram.com/gaston_tucoach/">Gastón Mondino</a> - <span
+        class="horayfecha"><?php echo date("d-m-Y", strtotime($fecha)); ?></span></p>
+
+                    <?php if (!empty($imagen)) { ?>
+                        <img src="<?php echo $imagen; ?>" class="imagenPrincipal" alt="Imagen principal">
+                    <?php } ?>
+                    
         </div>
 
         <br><br>
@@ -57,69 +98,8 @@
         <div class="row">
 
             <div class="col-md-8 cuerpoBlog">
-                <p>Como sabes, en el mercado&nbsp;<strong>hay una enorme oferta de cursos que prometen certificarte como
-                        coach&nbsp;</strong>pero que, en realidad, no lo hacen con la seriedad ni la profundidad que se
-                    requiere
-                    para ser un verdadero profesional.</p>
-
-                <p><strong>La certificación en coaching implica una serie de aprendizajes, experiencias y prácticas que
-                        no
-                        pueden desarrollarse en un par de meses.&nbsp;</strong></p>
-                <div class="wp-block-spacer" aria-hidden="true">&nbsp;</div>
-                <p><strong>El problema es que algunos egresados de esos cursos llegan a creer que están capacitados para
-                        dar
-                        servicio de coaching&nbsp;</strong>a clientes u organizaciones que finalmente no logran los
-                    objetivos
-                    esperados o que terminan recibiendo un proceso de consultoría. Por supuesto que esto va en
-                    detrimento de
-                    todo el gremio.</p>
-                <div class="wp-block-spacer" aria-hidden="true">&nbsp;</div>
-                <p>Aunque en México y otros países latinoamericanos, aún no exista una regulación oficial para
-                    desempeñarse
-                    como
-                    coach,&nbsp;<strong>existen organismos internacionales como la International Coaching Federation
-                        (ICF),
-                        que
-                        otorgan una credencial a los coaches que cumplen con ciertos estándares profesionales.</strong>
-                </p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <h1><strong>6 razones para acreditarse como coach ante la ICF:</strong></h1>
-                <div class="wp-block-spacer" aria-hidden="true">&nbsp;</div>
-                <h3>1. Para respaldar tu conocimiento y experiencia.</h3>
-                <div class="wp-block-spacer" aria-hidden="true">&nbsp;</div>
-                <h3>2. Para avalar que has desarrollado las competencias necesarias para dar un acompañamiento de
-                    coaching.
-                </h3>
-                <div class="wp-block-spacer" aria-hidden="true">&nbsp;</div>
-                <h3>3. Para proyectar una imagen más profesional.</h3>
-                <div class="wp-block-spacer" aria-hidden="true">&nbsp;</div>
-                <h3>4. Para inspirar mayor confianza (tu cliente estará seguro de que tienes una ética profesional que
-                    implica
-                    total confidencialidad, honestidad y respeto).</h3>
-                <div class="wp-block-spacer" aria-hidden="true">&nbsp;</div>
-                <h3>5. Para tener acceso a mejores oportunidades laborales.</h3>
-                <div class="wp-block-spacer" aria-hidden="true">&nbsp;</div>
-                <h3>6. Para demostrar que eres un profesional preocupado por aprender y seguir creciendo.&nbsp;</h3>
-                <div class="wp-block-spacer" aria-hidden="true">&nbsp;</div>
-                <p>Ya sea que te quieras dedicar al coaching de manera profesional o no,&nbsp;<strong>recomendamos 100%
-                        tomar un
-                        curso certificado, esto garantiza que desarrollarás las competencias necesarias para acompañar a
-                        otros,
-                        y a ti mismo, a alcanzar metas personales y profesionales</strong>, así como a trazar objetivos,
-                    mantener la motivación y el enfoque para alcanzarlos.&nbsp;</p>
-                <div class="wp-block-spacer" aria-hidden="true">&nbsp;</div>
-                <p><strong>El programa online&nbsp;</strong><a href="https://www.team-power.com.mx/coaching-power/"
-                        target="_blank" rel="noreferrer noopener"><strong>Coaching Power</strong></a><strong>&nbsp;de
-                        Team
-                        Power,&nbsp;</strong>es una certificación profesional que tiene un&nbsp;<strong>enfoque
-                        organizacional&nbsp;</strong>pero,&nbsp;<strong>a diferencia de otros programas parecidos, tiene
-                        un
-                        fundamento en el bienestar integral de la persona&nbsp;</strong>(se toman en cuenta el aspecto
-                    espiritual -propósito de vida-, físico, intelectual, emocional y relacional), con&nbsp; prácticas
-                    profundas
-                    y un acompañamiento cercano a lo largo de todo el camino.</p>
-                <p>&nbsp;</p>
+                
+            <?php echo html_entity_decode($contenido); ?>
 
             </div>
 
@@ -178,9 +158,6 @@
         </div>
 
     </div>
-
-    <!--<?php include('php/mostrar_blogs.php'); ?>-->
-
 
     <div class="b-example-divider"></div>
 

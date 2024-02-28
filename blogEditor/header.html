@@ -1,97 +1,97 @@
 <header id="header">
 
-    <nav class="navbar navbar-expand-lg bg-body fixed-top" style="background-color: #f8fafb !important;">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img id="logo" src="img/LOGO GM NEGRO.png" alt="Logo"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body text-center textoNavbar">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a class="nav-link" href="https://gastonmondino.com/">Inicio</a>
-              </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="https://gastonmondino.com/blog.html">Blog</a>
-              </li>
+  <nav class="navbar navbar-expand-lg bg-body fixed-top" style="background-color: #f8fafb !important;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img id="logo" src="img/LOGO GM NEGRO.png" alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body text-center textoNavbar">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-                  <a class="nav-link current" href="https://blog.gastonmondino.com/index.html">Editor</a>
-              </li>
-              </ul>
-            </div>
+                <a class="nav-link" href="index.php">Inicio</a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="crear.html">Crear</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://gastonmondino.com/blogs.php">Blogs</a>
+            </li>
+            </ul>
           </div>
         </div>
-      </nav>
+      </div>
+    </nav>
 
 </header>
 
 <style>
 
 @media (max-width: 990px) {
-  .textoNavbar{
-  font-size: 25px;
+.textoNavbar{
+font-size: 25px;
 }
 }
 
-    #logo {
-  width: 8rem; /* Establece el ancho máximo del logo */
-  margin: 0;
+  #logo {
+width: 8rem; /* Establece el ancho máximo del logo */
+margin: 0;
 }
 
 .container-fluid{
-  background-color: transparent;
+background-color: transparent;
 }
 
 .navbar-nav .nav-link {
-  color: black;
-  font-weight: bold;
+color: black;
+font-weight: bold;
 }
 
 .navbar-nav .nav-link:hover {
-  color: #ef8024;
+color: #ef8024;
 }
 
 .navbar-nav a {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-  color: #ef8024;
+position: relative;
+overflow: hidden;
+display: inline-block;
+color: #ef8024;
 }
 
 .navbar-nav a:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: -100%;
-  width: 100%;
-  height: 2px;
-  background: #ef8024;
-  transition: left 0.3s;
+content: "";
+position: absolute;
+bottom: 0;
+left: -100%;
+width: 100%;
+height: 2px;
+background: #ef8024;
+transition: left 0.3s;
 
 }
 
 .navbar-nav a:hover:after {
-  left: 0;
+left: 0;
 }
 
 .navbar .current:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: #ef8024;
-  transition: none;
+content: "";
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 2px;
+background: #ef8024;
+transition: none;
 }
 
 .nav-item:not(:last-child) {
-  margin-right: 10px; /* Puedes ajustar el valor según el espacio que desees */
+margin-right: 10px; /* Puedes ajustar el valor según el espacio que desees */
 }
 
 
@@ -109,17 +109,33 @@ var matchFound = false;
 
 // Recorre todos los enlaces
 for (var i = 0; i < links.length; i++) {
-  // Si la URL del enlace coincide con la URL de la página actual
-  if (links[i].href === url) {
-    // Agrega la clase 'current' al enlace
-    var homeLink = document.querySelector('.nav-item a[href="/index.html"]');
-  if (homeLink) {
-    homeLink.classList.remove('current');
-  }
-    links[i].classList.add('current');
-    matchFound = true;
-    break;
-  }
+    // Si la URL del enlace coincide con la URL de la página actual
+    if (links[i].href === url) {
+        // Agrega la clase 'current' al enlace
+        var homeLink = document.querySelector('.nav-item a[href="index.php"]');
+        if (homeLink) {
+            homeLink.classList.remove('current');
+        }
+        links[i].classList.add('current');
+        matchFound = true;
+        break;
+    }
 }
 
+// Si la URL es editar.php, marca el enlace "Crear"
+if (url.includes("editar.php")) {
+  var createLink = document.querySelector('.nav-item a[href="crear.html"]');
+  if (createLink) {
+    createLink.classList.add('current');
+  }
+} else {
+  // Si no se encuentra ninguna coincidencia, agrega la clase 'current' al enlace de Inicio
+  if (!matchFound) {
+      var homeLink = document.querySelector('.nav-item a[href="index.php"]');
+      if (homeLink) {
+          homeLink.classList.add('current');
+      }
+  }
+}
 </script>
+

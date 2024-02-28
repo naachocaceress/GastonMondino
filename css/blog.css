@@ -10,7 +10,6 @@
     background-position: top center;}
 
 .principal {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(/img/imgSinCopy/blog3.jpg);
     width: 100%; /* 100% del ancho de la ventana */
     height: 100%; /* 100% de la altura de la ventana */
     background-size: cover; /* ajusta la imagen manteniendo su relación de aspecto y cubriendo el contenedor */
