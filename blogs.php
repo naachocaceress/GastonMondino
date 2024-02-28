@@ -45,45 +45,47 @@
     <br><br><br><br>
 
     <?php
-    $conexion = new mysqli('localhost', 'nacho', '1234', 'u607022590_GastonPageBase');
 
-    if ($conexion->connect_errno) {
-        echo "Falló la conexión a MySQL: (" . $conexion->connect_errno . ") " . $conexion->connect_error;
-        exit;
+if ($conexion->connect_errno) {
+    echo "Falló la conexión a MySQL: (" . $conexion->connect_errno . ") " . $conexion->connect_error;
+    exit;
+}
+
+$sql = "SELECT * FROM entradas_blog ORDER BY fecha_publicacion DESC LIMIT 3";
+
+$resultado = $conexion->query($sql);
+
+// Verificar si se encontraron resultados
+if ($resultado->num_rows > 0) {
+    $entradas = []; // Inicializar el array de entradas
+    // Recorrer cada fila de resultados y guardar en el array de entradas
+    while ($fila = $resultado->fetch_assoc()) {
+        // Obtener el contenido completo dentro del bucle
+        $contenidoCompleto = htmlspecialchars($fila['contenido']);
+        
+        // Dividir el contenido en palabras
+        $palabras = explode(" ", $contenidoCompleto);
+        
+        // Tomar las primeras 10 palabras
+        $contenido = implode(" ", array_slice($palabras, 0, 18));
+
+        $entrada = [
+            'id' => $fila['id'],
+            'titulo' => htmlspecialchars($fila['titulo']),
+            'etiqueta' => htmlspecialchars($fila['etiqueta']),
+            'fecha' => htmlspecialchars($fila['fecha_publicacion']),
+            'imagen' => 'data:image/jpeg;base64,' . base64_encode($fila['imagen']), // Convertir imagen a base64
+            'contenido' => $contenido // Aquí usamos $contenido en lugar de $contenidoCompleto
+        ];
+        $entradas[] = $entrada;
     }
+}
 
-    $sql = "SELECT * FROM entradas_blog ORDER BY fecha_publicacion DESC LIMIT 3";
+$conexion->close();
+?>
 
-    $resultado = $conexion->query($sql);
 
-    // Verificar si se encontraron resultados
-    if ($resultado->num_rows > 0) {
-        $entradas = []; // Inicializar el array de entradas
-        // Recorrer cada fila de resultados y guardar en el array de entradas
-        while ($fila = $resultado->fetch_assoc()) {
-            // Obtener el contenido completo dentro del bucle
-            $contenidoCompleto = htmlspecialchars($fila['contenido']);
 
-            // Dividir el contenido en palabras
-            $palabras = explode(" ", $contenidoCompleto);
-
-            // Tomar las primeras 10 palabras
-            $contenido = implode(" ", array_slice($palabras, 0, 18));
-
-            $entrada = [
-                'id' => $fila['id'],
-                'titulo' => htmlspecialchars($fila['titulo']),
-                'etiqueta' => htmlspecialchars($fila['etiqueta']),
-                'fecha' => htmlspecialchars($fila['fecha_publicacion']),
-                'imagen' => 'data:image/jpeg;base64,' . base64_encode($fila['imagen']), // Convertir imagen a base64
-                'contenido' => $contenido // Aquí usamos $contenido en lugar de $contenidoCompleto
-            ];
-            $entradas[] = $entrada;
-        }
-    }
-
-    $conexion->close();
-    ?>
 
     <main class="container">
 
@@ -93,7 +95,9 @@
                 <div class="card mx-auto rounded-4 cardSombra" style="max-width: 24rem;">
                     <div class="ratio ratio-16x9">
                         <a href="https://www.youtube.com/watch?v=PwCg2CPKQ2c">
-                            <img src="<?php echo htmlspecialchars($entradas[0]['imagen']); ?>" class="rounded-4 imagenImg" alt="Imagen principal">
+
+                                <img src="<?php echo htmlspecialchars($entradas[0]['imagen']); ?>" class="rounded-4 imagenImg" alt="Imagen principal">
+
                         </a>
                     </div>
                     <div class="tarjetaTexto col p-4 d-flex flex-column position-static">
@@ -250,7 +254,7 @@
                             <a href="https://gastonmondino.com/blog.php?id=<?php echo htmlspecialchars($entradas[2]['id']); ?>" class="linkAPagina">Continuar Leyendo</a>
                         </div>
                         <div class="tarjetaImagen col-auto d-none d-lg-block">
-                            <img src="<?php echo htmlspecialchars($entradas[2]['imagen']); ?>" class="imagenImg" alt="Imagen principal">
+                        <img src="<?php echo htmlspecialchars($entradas[2]['imagen']); ?>" class="imagenImg" alt="Imagen principal">
                         </div>
                     </div>
                 </div>

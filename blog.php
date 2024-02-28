@@ -52,7 +52,6 @@
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
         // Conectar a la base de datos
-        $conexion = new mysqli('localhost', 'nacho', '1234', 'u607022590_GastonPageBase');
 
         // Comprobar si el ID existe
         $sql = "SELECT * FROM entradas_blog WHERE id = ?";
@@ -87,10 +86,10 @@
         href="https://www.instagram.com/gaston_tucoach/">Gastón Mondino</a> - <span
         class="horayfecha"><?php echo date("d-m-Y", strtotime($fecha)); ?></span></p>
 
+
                     <?php if (!empty($imagen)) { ?>
                         <img src="<?php echo $imagen; ?>" class="imagenPrincipal" alt="Imagen principal">
                     <?php } ?>
-                    
         </div>
 
         <br><br>
@@ -99,7 +98,7 @@
 
             <div class="col-md-8 cuerpoBlog">
                 
-            <?php echo html_entity_decode($contenido); ?>
+                <?php echo html_entity_decode($contenido); ?>
 
             </div>
 

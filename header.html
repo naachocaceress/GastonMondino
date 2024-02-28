@@ -126,9 +126,9 @@ if (links[i].href === url) {
 }
 
 // Si no se encuentra ninguna coincidencia y la URL actual es "blog.php" o "blogs.html"
-if (!matchFound && (url.includes("blog.php") || url.includes("blogs.php"))) {
+if (!matchFound && (url.includes("blog.php") || url.includes("blogs.html"))) {
 // Encuentra el enlace "Blog" y agrega la clase 'current'
-var blogLink = document.querySelector('.nav-item a[href="/blogs.html"]');
+var blogLink = document.querySelector('.nav-item a[href="/blogs.php"]');
 if (blogLink) {
   blogLink.classList.add('current');
 }
