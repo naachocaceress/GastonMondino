@@ -44,7 +44,10 @@
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
         // Conectar a la base de datos
+<<<<<<< HEAD
         $conexion = new mysqli('localhost', 'nacho', '1234', 'u607022590_GastonPageBase');
+=======
+>>>>>>> 75946bdf34c6cc4a7c633628c546ed8214b2fef0
 
         // Comprobar si el ID existe
         $sql = "SELECT * FROM entradas_blog WHERE id = ?";

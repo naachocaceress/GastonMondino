@@ -53,12 +53,15 @@
                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
             </svg>
         </symbol>
+<<<<<<< HEAD
         <symbol id="icono-ver">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
                 <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
                 <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
             </svg>
         </symbol>
+=======
+>>>>>>> 75946bdf34c6cc4a7c633628c546ed8214b2fef0
     </svg>
 
     <header></header>
@@ -84,10 +87,14 @@
 
                     <?php
                     // Conexión a la base de datos
+<<<<<<< HEAD
                     $servername = "localhost";
                     $username = "nacho";
                     $password = "1234";
                     $dbname = "u607022590_GastonPageBase";
+=======
+                    
+>>>>>>> 75946bdf34c6cc4a7c633628c546ed8214b2fef0
 
                     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -111,7 +118,10 @@
                             echo "<td>" . $row["etiqueta"] . "</td>";
                             echo "<td class='fixed-column'>";
                             echo "<div class='btn-group'>";
+<<<<<<< HEAD
                             echo "<a href='https://gastonmondino.com/blog.php?id=" . $row['id'] . "' class='btn btn-success'><svg width='16' height='16'><use href='#icono-ver' /></svg></a>";
+=======
+>>>>>>> 75946bdf34c6cc4a7c633628c546ed8214b2fef0
                             echo "<a href='editar.php?id=" . $row['id'] . "' class='btn btn-primary'><svg width='16' height='16'><use href='#icono-editar' /></svg></a>";
                             echo "<button class='btn btn-danger eliminar' data-id='" . $row['id'] . "'><svg width='16' height='16'><use href='#icono-eliminar' /></svg></button>";
                             echo "</div>";
