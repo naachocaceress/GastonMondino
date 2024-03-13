@@ -1,45 +1,89 @@
-.contenidoTotal{
-    padding: 50px;
 
-}
 
-.contPrincipal {
-    text-align: center;
-}
-
-.tituloPrincipal {
-    text-align: left;
-    font-size: 3.5em;
-    /* Tamaño relativo al tamaño de fuente del navegador */
-    font-weight: bold;
-}
-
-@media screen and (max-width: 600px) {
-    .tituloPrincipal {
-        font-size: 9vw;
-        /* Tamaño relativo al ancho de la pantalla para dispositivos móviles */
+@media screen and (max-width: 1000px) {
+    .contenidoTotal{
+        padding: 10px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        }
     }
-}
-
-.linkAInsta {
-    color: #20a49c;
-}
-
-.horarioPrincipal {
-    text-align: left;
-}
-
-.imagenPrincipal {
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    border-radius: 10px;
-}
-
-.cuerpoBlog{
-    font-weight: justify;
-}
-
-.otrosBlog{
-    padding-left: 50px;
-}
+    
+    @media screen and (min-width: 1001px) {
+    .contenidoTotal{
+        padding: 100px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        }
+    }
+    
+    .img-responsive {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        border-radius:10px;
+    }
+    
+    .p > .video-responsive {
+        padding-left: 0 !important;
+    }
+    
+    
+    .video-responsive {
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+        border-radius:10px;
+    }
+    
+    .contPrincipal {
+        text-align: center;
+    }
+    
+    .tituloPrincipal {
+        text-align: left;
+        font-size: 3.5em;
+        /* Tamaño relativo al tamaño de fuente del navegador */
+        font-weight: bold;
+    }
+    
+    @media screen and (max-width: 600px) {
+        .tituloPrincipal {
+            font-size: 9vw;
+            /* Tamaño relativo al ancho de la pantalla para dispositivos móviles */
+        }
+        .img{
+        width:10px !important;
+    }
+    }
+    
+    .linkAInsta {
+        color: #20a49c;
+    }
+    
+    .horarioPrincipal {
+        text-align: left;
+    }
+    
+    .imagenPrincipal {
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        border-radius: 10px;
+    }
+    
+    .cuerpoBlog{
+        font-weight: justify;
+    }
+    
+    .otrosBlog{
+        padding-left: 20px;
+            padding-right: 20px;
+    }
+    
+    .img{
+        width:10px !important;
+    }
+    
+    .derechaA{
+        text-align: right;
+      }

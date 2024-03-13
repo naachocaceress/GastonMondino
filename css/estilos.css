@@ -99,6 +99,7 @@ html {
   transform: scale(0.95);
 }
 
+
 /* -- */
 
 .b-example-divider {
@@ -112,29 +113,29 @@ html {
 
 /* -- */
 
-.tarjetaBlog {
-  height: 260px;
+.quieto {
+    position: absolute;
+    bottom: 0px; /* Ajusta esta distancia según sea necesario */
+    background-color:white;
+    width: 90%;
+    padding-top:1px;
+    padding-bottom:14px;
+    z-index:2;
+}
+
+@media (min-width: 770px) {
+  .tarjetaBlog {
+  height: 220px;
+}
 }
 
 .tarjetaTexto {
   overflow: hidden;
 }
 
-.tituloH {
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+.tituloH{
+    padding-bottom: 10px;
 }
-
-.textoP {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-}
-
 
 .tarjetaImagen {
   max-width: 230px;
@@ -144,14 +145,37 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index:3;
+  position: relative;
+}
+
+
+
+@media (min-width: 770px) {
+    
+    .tarjetaVideo{
+    height: 360px;
+}
+    
+  .fotoVideo{
+    height: 200px !important;
+}
+}
+
+.imgVideo{
+    width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index:3;
+  position: relative;
 }
 
 /* -- */
 
 .cardSombra {
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease !important;
 }
 
 .cardSombra:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) !important;
 }

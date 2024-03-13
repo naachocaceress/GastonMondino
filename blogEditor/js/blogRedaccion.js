@@ -13,17 +13,51 @@ function mostrarImagenPreview() {
     }
 }
 
+// Define la función para procesar imágenes y iframes
+function processImagesAndIframes() {
+    // Obtén el contenido del editor
+    const content = tinymce.activeEditor.getContent();
+
+    // Crear un elemento div temporal para contener el contenido y poder buscar los elementos dentro
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = content;
+
+    // Obtener todas las imágenes y iframes dentro del contenido
+    const images = tempDiv.querySelectorAll('img');
+    const iframes = tempDiv.querySelectorAll('iframe');
+
+    // Agregar clases a las imágenes y iframes
+    images.forEach(function(image) {
+        image.classList.add('img-responsive');
+    });
+
+    iframes.forEach(function(iframe) {
+        iframe.classList.add('video-responsive');
+    });
+
+    // Actualizar el contenido del editor con las clases aplicadas
+    tinymce.activeEditor.setContent(tempDiv.innerHTML);
+}
+
+// Inicialización de TinyMCE
 tinymce.init({
     selector: '#editor',
     toolbar_mode: 'sliding',
     language: 'es_MX',
     branding: false,
     menubar: false,
-    toolbar:
-        'undo redo fullscreen preview | styles | image media autolink link | styleselect  | bullist numlist | outdent indent | forecolor backcolor | emoticons hr blockquote | table tabledelete insertdatetime | copy cut selectall | subscript superscript | removeformat ',
+    toolbar: 'undo redo fullscreen preview | styles | image media autolink link | styleselect  | bullist numlist | outdent indent | forecolor backcolor | emoticons hr blockquote | table tabledelete insertdatetime | copy cut selectall | subscript superscript | removeformat',
     statusbar: true,
     plugins: 'image lists advlist fullscreen emoticons insertdatetime media table wordcount autolink link preview',
+    setup: function (editor) {
+        // Llama a la función para procesar imágenes y iframes cada vez que el contenido cambia
+        editor.on('change', function() {
+            processImagesAndIframes();
+        });
+    }
 });
+
+
 
 //CREAR
 
@@ -35,7 +69,7 @@ function guardarContenido() {
 
     // Verificar que el título y la imagen no estén vacíos
     if (!titulo.trim()) {
-        alert('Falta seleccionar un titulo.');
+        alert('Falta seleccionar un título.');
         return;
     }
     if (!imagen) {
@@ -54,12 +88,22 @@ function guardarContenido() {
     const xhr = new XMLHttpRequest();
     xhr.open('POST', 'php/guardar_contenido.php', true);
     xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            console.log(xhr.responseText);
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                // La solicitud fue exitosa
+                console.log(xhr.responseText);
+                alert('Contenido guardado correctamente.');
+                window.location.href = 'crear.html';
+            } else {
+                // La solicitud no fue exitosa
+                console.error('Error al guardar el contenido:', xhr.status);
+                alert('Hubo un error al guardar el contenido. Por favor, inténtalo de nuevo.');
+            }
         }
     };
     xhr.send(formData);
 }
+
 
 //ELIMINAR
 
@@ -153,6 +197,3 @@ function editarContenido() {
     };
     xhr.send(formData);
 }
-
-
-

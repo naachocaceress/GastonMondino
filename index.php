@@ -17,7 +17,7 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
-        $(function () {
+        $(function() {
             $("header").load("header.html");
             $("footer").load("footer.html");
         });
@@ -38,11 +38,82 @@
     <header></header>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <a href="https://api.whatsapp.com/message/32ES7KUOOJEDE1?autoload=1&app_absent=0" class="float" target="_blank"
-        data-bs-toggle="tooltip" data-bs-placement="left" data-bs-custom-class="custom-tooltip"
-        data-bs-title="¿Necesitas ayuda?">
+    <a href="https://api.whatsapp.com/message/32ES7KUOOJEDE1?autoload=1&app_absent=0" class="float" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-custom-class="custom-tooltip" data-bs-title="¿Necesitas ayuda?">
         <i class="fa fa-whatsapp my-float"></i>
     </a>
+
+    <!-- PHP -->
+
+    <?php
+
+    if ($conexion->connect_errno) {
+        echo "Falló la conexión a MySQL: (" . $conexion->connect_errno . ") " . $conexion->connect_error;
+        exit;
+    }
+
+    // Consulta SQL para obtener las últimas 2 entradas con la etiqueta "blog"
+    $sql_blog = "SELECT * FROM entradas_blog WHERE etiqueta = 'blog' ORDER BY fecha_publicacion DESC LIMIT 2";
+    $resultado_blog = $conexion->query($sql_blog);
+
+    // Verificar si se encontraron resultados
+    if ($resultado_blog->num_rows > 0) {
+        $entradas_blog = []; // Inicializar el array de entradas de blog
+        // Recorrer cada fila de resultados y guardar en el array de entradas de blog
+        while ($fila_blog = $resultado_blog->fetch_assoc()) {
+            // Obtener el contenido completo dentro del bucle
+            $contenidoCompleto = htmlspecialchars($fila_blog['contenido']);
+
+            // Dividir el contenido en palabras
+            $palabras = explode(" ", $contenidoCompleto);
+
+            // Tomar las primeras 10 palabras
+            $contenido = implode(" ", array_slice($palabras, 0, 25));
+
+            $entrada_blog = [
+                'id' => $fila_blog['id'],
+                'titulo' => htmlspecialchars($fila_blog['titulo']),
+                'etiqueta' => htmlspecialchars($fila_blog['etiqueta']),
+                'fecha' => htmlspecialchars($fila_blog['fecha_publicacion']),
+                'imagen' => 'data:image/jpeg;base64,' . base64_encode($fila_blog['imagen']), // Convertir imagen a base64
+                'contenido' => $contenido // Aquí usamos $contenido en lugar de $contenidoCompleto
+            ];
+            $entradas_blog[] = $entrada_blog;
+        }
+    }
+
+    // Consulta SQL para obtener las últimas 3 entradas con la etiqueta "video"
+    $sql_video = "SELECT * FROM entradas_blog WHERE etiqueta = 'video' ORDER BY fecha_publicacion DESC LIMIT 3";
+    $resultado_video = $conexion->query($sql_video);
+
+    // Verificar si se encontraron resultados
+    if ($resultado_video->num_rows > 0) {
+        $entradas_video = []; // Inicializar el array de entradas de video
+        // Recorrer cada fila de resultados y guardar en el array de entradas de video
+        while ($fila_video = $resultado_video->fetch_assoc()) {
+            // Obtener el contenido completo dentro del bucle
+            $contenidoCompleto = htmlspecialchars($fila_video['contenido']);
+
+            // Dividir el contenido en palabras
+            $palabras = explode(" ", $contenidoCompleto);
+
+            // Tomar las primeras 10 palabras
+            $contenido = implode(" ", array_slice($palabras, 0, 15));
+
+            $entrada_video = [
+                'id' => $fila_video['id'],
+                'titulo' => htmlspecialchars($fila_video['titulo']),
+                'etiqueta' => htmlspecialchars($fila_video['etiqueta']),
+                'fecha' => htmlspecialchars($fila_video['fecha_publicacion']),
+                'imagen' => 'data:image/jpeg;base64,' . base64_encode($fila_video['imagen']), // Convertir imagen a base64
+                'contenido' => $contenido // Aquí usamos $contenido en lugar de $contenidoCompleto
+            ];
+            $entradas_video[] = $entrada_video;
+        }
+    }
+
+    $conexion->close();
+    ?>
+
 
 
     <!-- Inicio -->
@@ -54,8 +125,7 @@
                     <div style="white-space: nowrap;">
                         <h4 class="display-6">Comunicá</h4>
                         <h4 class="display-6" style="font-weight: bold;">Desde vos con tu voz</h4>
-                        <h1 class="display-1"
-                            style="font-family: 'Lilita One'; margin: 0; padding: 0; font-weight: bold;                         ">
+                        <h1 class="display-1" style="font-family: 'Lilita One'; margin: 0; padding: 0; font-weight: bold;                         ">
                             Y MARCÁ LA <br>DIFERENCIA </h1>
                     </div>
 
@@ -70,8 +140,7 @@
 
                     <h4><strong class="coete" style="padding: 10px; white-space: nowrap;">🚀 ¡Te acompaño a lograrlo!
                             🚀</strong></h4>
-                    <a href="https://api.whatsapp.com/message/32ES7KUOOJEDE1?autoload=1&app_absent=0"
-                        class="ov-btn-grow-ellipse">¡Hablemos!</a>
+                    <a href="https://api.whatsapp.com/message/32ES7KUOOJEDE1?autoload=1&app_absent=0" class="ov-btn-grow-ellipse">¡Hablemos!</a>
 
                 </div>
             </div>
@@ -108,8 +177,7 @@
                         </p>
                     </div> <br> <br>
                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5" data-aos="fade-right">
-                        <a href="/acercademi.html"
-                            class="ov-btn-grow-ellipse verde">Conoceme más</a>
+                        <a href="/acercademi.html" class="ov-btn-grow-ellipse verde">Conoceme más</a>
                     </div>
                 </div>
                 <div class="col-md-6" data-aos="fade-left">
@@ -187,8 +255,7 @@
 
             <div class="col flip-card">
                 <div class="card text-bg-dark flip-card-inner">
-                    <img src="/img/COACHING ORGANIZACIONAL.jpeg" class="card-img" alt="..."
-                        style="border-radius: 10px;">
+                    <img src="/img/COACHING ORGANIZACIONAL.jpeg" class="card-img" alt="..." style="border-radius: 10px;">
                     <div class="card-img-overlay">
                         <h5 class="card-title card-front">COACHING</h5>
                         <div class="click-indicator">
@@ -204,7 +271,7 @@
                             <a href="#" class="linkAPagina">Ver más</a>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -219,11 +286,9 @@
         <h2 class="pb-2 border-bottom" style="background-color: white;">Testimonios</h2> <br>
 
         <div class="wrapper">
-            
-            <i id="left" class="text-center"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                    fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
-                    <path
-                        d="M10 12.796V3.204L4.519 8zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z" />
+
+            <i id="left" class="text-center"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
+                    <path d="M10 12.796V3.204L4.519 8zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z" />
                 </svg></i>
 
             <ul class="carousel">
@@ -277,10 +342,8 @@
 
             </ul>
 
-            <i id="right" class="text-center"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                    fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
-                    <path
-                        d="M6 12.796V3.204L11.481 8zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
+            <i id="right" class="text-center"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
+                    <path d="M6 12.796V3.204L11.481 8zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
                 </svg></i>
 
         </div>
@@ -327,45 +390,78 @@
                 <h2 style="background-color: white;">Blogs</h2>
             </div>
 
-            <div class="col-md-6" data-aos="fade-right"> <br>                
-                <div class="tarjetaBlog row g-0 border rounded-4 overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" 
-                    style="background-color: white;">
-                    <div class="tarjetaTexto col p-4 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-2 text-success-emphasis">Coaching</strong>
-                        <h3 class="tituloH mb-0">Conversaciones Poderosas
-                        </h3>
-                        <div class="mb-1 text-body-secondary">Nov 11</div>
-                        <p class="textoP mb-auto">
-                            &nbsp; Mirar nuestra identidad sin mirar nuestro entorno es perderse de una gran posibilidad de registro de porque hacemos lo que hacemos, decimos lo que decimos y sentimos lo que sentimos.
-                        </p>
-                        <a href="#" class="linkAPagina">Continuar Leyendo</a>
-                    </div>
-                    <div class="tarjetaImagen col-auto d-none d-lg-block">
-                        <img src="/img/img_2.jpeg" class="imagenImg">
-                    </div>
-                </div>
-            </div>
+            <?php if (!empty($entradas_blog[0])) : ?>
 
-            <div class="col-md-6" data-aos="fade-left"> <br>                
-                <div class="tarjetaBlog row g-0 border rounded-4 overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" 
-                    style="background-color: white;">
-                    <div class="tarjetaTexto col p-4 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-2 text-success-emphasis">Interes</strong>
-                        <h3 class="tituloH mb-0">Comunicacion efectiva</h3>
-                        <div class="mb-1 text-body-secondary">Nov 12</div>
-                        <p class="textoP mb-auto">
-                            &nbsp; Es muy común hoy en día estar atravesado por múltiples distracciones, infinidad de obstáculos e innumerables inconvenientes que nos permitan entregarnos de lleno a la conversación con alguien
-                        </p>
-                        <a href="#" class="linkAPagina">Continuar Leyendo</a>
-                    </div>
-                    <div class="tarjetaImagen col-auto d-none d-lg-block">
-                        <img src="/img/img_1.jpeg" class="imagenImg">
+                <div class="col-md-6" data-aos="fade-right"> <br>
+                    <div class="tarjetaBlog cardSombra row g-0 border rounded-4 overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background-color: white;">
+                        <div class="tarjetaTexto col p-4 d-flex flex-column position-static">
+                            <div class="row mb-2">
+                                <div class="col-3">
+                                    <strong class="text-success-emphasis">
+                                        <?php echo htmlspecialchars($entradas_blog[0]['etiqueta']); ?>
+                                    </strong>
+                                </div>
+                                <div class="col-9 derechaA">
+                                    <span class="text-success-emphasis">
+                                        <?php echo date("d-m-Y", strtotime($entradas_blog[0]['fecha'])); ?>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <h2 class="tituloH">
+                                <?php echo htmlspecialchars($entradas_blog[0]['titulo']); ?>
+                            </h2>
+
+                            <div class="quieto">
+                                <a href="https://gastonmondino.com/blog.php?id=<?php echo htmlspecialchars($entradas_blog[0]['id']); ?>" class="linkAPagina">Leer más</a>
+                            </div>
+                        </div>
+
+                        <div class="tarjetaImagen col-auto d-none d-lg-block">
+                            <img src="<?php echo htmlspecialchars($entradas_blog[0]['imagen']); ?>" class="rounded-4 imagenImg" alt="Imagen principal">
+                        </div>
                     </div>
                 </div>
-            </div>
+
+            <?php endif; ?>
+
+            <?php if (!empty($entradas_blog[1])) : ?>
+
+                <div class="col-md-6" data-aos="fade-left"> <br>
+                    <div class="tarjetaBlog cardSombra row g-0 border rounded-4 overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background-color: white;">
+                        <div class="tarjetaTexto col p-4 d-flex flex-column position-static">
+                            <div class="row mb-2">
+                                <div class="col-3">
+                                    <strong class="text-success-emphasis">
+                                        <?php echo htmlspecialchars($entradas_blog[1]['etiqueta']); ?>
+                                    </strong>
+                                </div>
+                                <div class="col-9 derechaA">
+                                    <span class="text-success-emphasis">
+                                        <?php echo date("d-m-Y", strtotime($entradas_blog[1]['fecha'])); ?>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <h2 class="tituloH">
+                                <?php echo htmlspecialchars($entradas_blog[1]['titulo']); ?>
+                            </h2>
+
+                            <div class="quieto">
+                                <a href="https://gastonmondino.com/blog.php?id=<?php echo htmlspecialchars($entradas_blog[1]['id']); ?>" class="linkAPagina">Leer más</a>
+                            </div>
+                        </div>
+                        <div class="tarjetaImagen col-auto d-none d-lg-block">
+                            <img src="<?php echo htmlspecialchars($entradas_blog[1]['imagen']); ?>" class="rounded-4 imagenImg" alt="Imagen principal">
+                        </div>
+                    </div>
+                </div>
+
+            <?php endif; ?>
+
 
             <div class="d-flex">
-                <a href="/blog.html" class="ms-auto linkAPagina" style="background-color: white;">Ver más blogs</a>
+                <a href="/blogs.php" class="ms-auto linkAPagina" style="background-color: white;">Ver más blogs</a>
             </div>
 
 
@@ -376,49 +472,83 @@
                 <h2 style="background-color: white;">Videos</h2>
             </div>
 
-            <div class="col-md-4" data-aos="fade-right"> <br>
-                <div class="card mx-auto rounded-4 cardSombra" style="max-width: 24rem;">
-                    <div class="ratio ratio-16x9">
-                        <a href="https://www.youtube.com/watch?v=PwCg2CPKQ2c"><img src="/img/miniaturaYoutube.jpg" class="rounded-4"></a>
+            <?php if (!empty($entradas_video[0])) : ?>
+
+                <div class="col-md-4" data-aos="fade-right"> <br>
+
+                    <div class="card mx-auto rounded-4 cardSombra tarjetaVideo" style="max-width: 24rem;">
+                        <div class="ratio ratio-16x9">
+                            <a href="https://gastonmondino.com/blog.php?id=<?php echo htmlspecialchars($entradas_video[0]['id']); ?>">
+                                <img src="<?php echo htmlspecialchars($entradas_video[0]['imagen']); ?>" class="rounded-4 imagenImg" alt="Imagen principal">
+                            </a>
+                        </div>
+                        <div class="tarjetaTexto col p-4 d-flex flex-column position-static">
+
+                            <h3 class="tituloH mb-0 text-center">
+                                <?php echo htmlspecialchars($entradas_video[0]['titulo']); ?>
+                            </h3>
+
+                            <div class="quieto text-center">
+                                <a href="https://gastonmondino.com/blog.php?id=<?php echo htmlspecialchars($entradas_video[0]['id']); ?>" class=" card-text linkAPagina">Ver video</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Comunicación cortita y al pie 🚀</h5>
-                        <p class="card-text">A la hora de comunicar tu mensaje, tu marca o algo que tengas para decir, es muy importante primero preguntarse antes de responderse.</p>
-                        <a href="https://www.youtube.com/watch?v=PwCg2CPKQ2c" class="card-text linkAPagina">Ver video</a>
+
+                </div>
+
+            <?php endif; ?>
+
+            <?php if (!empty($entradas_video[1])) : ?>
+
+                <div class="col-md-4" data-aos="fade-right"> <br>
+                    <div class="card mx-auto rounded-4 cardSombra tarjetaVideo" style="max-width: 24rem;">
+                        <div class="ratio ratio-16x9">
+                            <a href="https://gastonmondino.com/blog.php?id=<?php echo htmlspecialchars($entradas_video[1]['id']); ?>">
+                                <img src="<?php echo htmlspecialchars($entradas_video[1]['imagen']); ?>" class="rounded-4 imagenImg" alt="Imagen principal">
+                            </a>
+                        </div>
+                        <div class="tarjetaTexto col p-4 d-flex flex-column position-static">
+
+                            <h3 class="tituloH mb-0 text-center">
+                                <?php echo htmlspecialchars($entradas_video[1]['titulo']); ?>
+                            </h3>
+
+                            <div class="quieto text-center">
+                                <a href="https://gastonmondino.com/blog.php?id=<?php echo htmlspecialchars($entradas_video[1]['id']); ?>" class=" card-text linkAPagina">Ver video</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+
+            <?php endif; ?>
 
 
-            <div class="col-md-4" data-aos="fade-up"> <br>
-                <div class="card mx-auto rounded-4 cardSombra" style="max-width: 24rem;">
-                    <div class="ratio ratio-16x9">
-                        <a href="https://www.youtube.com/watch?v=TOtl9kiILAo"><img src="/img/miniaturaYoutube2.jpg" class="rounded-4"></a>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title text-center">¿Practicamos? Vamos juntos</h5>
-                        <p class="card-text">Se que hablar de comunicación hoy en dia es todo un desafío y practicarlo mucho más.
-                            ¿Te animas a trabajar tu comunicación? Te acompaño a lograrlo</p>
-                        <a href="https://www.youtube.com/watch?v=TOtl9kiILAo" class="card-text linkAPagina">Ver video</a>
+            <?php if (!empty($entradas_video[2])) : ?>
+
+                <div class="col-md-4" data-aos="fade-right"> <br>
+                    <div class="card mx-auto rounded-4 cardSombra tarjetaVideo" style="max-width: 24rem;">
+                        <div class="ratio ratio-16x9">
+                            <a href="https://gastonmondino.com/blog.php?id=<?php echo htmlspecialchars($entradas_video[2]['id']); ?>">
+                                <img src="<?php echo htmlspecialchars($entradas_video[2]['imagen']); ?>" class="rounded-4 imagenImg" alt="Imagen principal">
+                            </a>
+                        </div>
+                        <div class="tarjetaTexto col p-4 d-flex flex-column position-static">
+
+                            <h3 class="tituloH mb-0 text-center">
+                                <?php echo htmlspecialchars($entradas_video[2]['titulo']); ?>
+                            </h3>
+
+                            <div class="quieto text-center">
+                                <a href="https://gastonmondino.com/blog.php?id=<?php echo htmlspecialchars($entradas_video[2]['id']); ?>" class=" card-text linkAPagina">Ver video</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-md-4" data-aos="fade-left"> <br>
-                <div class="card mx-auto rounded-4 cardSombra" style="max-width: 24rem;">
-                    <div class="ratio ratio-16x9">
-                        <a href="https://www.youtube.com/watch?v=1b9pD2MZuQc"><img src="/img/miniaturaYoutube3.jpg" class="rounded-4"></a>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Descubramos juntos el apasionante mundo de la comunicación                        </h5>
-                        <p class="card-text">Quiero que armemos juntos esta comunidad de aprendizaje.</p>
-                        <a href="https://www.youtube.com/watch?v=1b9pD2MZuQc" class="card-text linkAPagina">Ver video</a>
-                    </div>
-                </div>
-            </div>
+            <?php endif; ?>
 
             <div class="d-flex" style="padding-top: 20px;">
-                <a href="#" class="ms-auto linkAPagina" style="background-color: white;">Ver más videos</a>
+                <a href="https://gastonmondino.com/blogs.php" class="ms-auto linkAPagina" style="background-color: white;">Ver más videos</a>
             </div>
         </div>
 
@@ -428,24 +558,20 @@
             </div>
 
             <div class="col-md-6 p-3" data-aos="fade-right">
-                <iframe class="cardSombra" cstyle="border-radius:12px"
-                    src="https://open.spotify.com/embed/episode/2PTFl7XnmPk4Z39GML3SoF?utm_source=generator"
-                    width="100%" height="152" frameBorder="0" allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"></iframe>
+                <iframe class="cardSombra" cstyle="border-radius:12px" src="https://open.spotify.com/embed/episode/2PTFl7XnmPk4Z39GML3SoF?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <div class="d-flex">
+                    <a href="https://open.spotify.com/show/2u0pdbHZpnaM1MqMt7R6Hd" class="ms-auto linkAPagina" style="background-color: white;">Más episodios</a>
+                </div>
             </div>
 
             <div class="col-md-6 p-3" data-aos="fade-left">
-                <iframe class="cardSombra" style="border-radius:12px"
-                    src="https://open.spotify.com/embed/episode/26DtyuPXXkK6MBlT0zGpD2?utm_source=generator&theme=0"
-                    width="100%" height="152" frameBorder="0" allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"></iframe>
+                <iframe class="cardSombra" style="border-radius:12px" src="https://open.spotify.com/embed/episode/26DtyuPXXkK6MBlT0zGpD2?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+                <div class="d-flex">
+                    <a href="https://open.spotify.com/show/2u0pdbHZpnaM1MqMt7R6Hd" class="ms-auto linkAPagina" style="background-color: white;">Más episodios</a>
+                </div>
             </div>
 
-            <div class="d-flex">
-                <a href="#" class="ms-auto linkAPagina" style="background-color: white;">Ver más podcast</a>
-            </div>
         </div>
 
     </div>
@@ -455,9 +581,7 @@
     <footer></footer>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     <script src="../js/script.js"></script>
 

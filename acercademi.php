@@ -17,7 +17,7 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
-        $(function () {
+        $(function() {
             $("header").load("header.html");
             $("footer").load("footer.html");
         });
@@ -38,11 +38,51 @@
     <header></header>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <a href="https://api.whatsapp.com/message/32ES7KUOOJEDE1?autoload=1&app_absent=0" class="float" target="_blank"
-        data-bs-toggle="tooltip" data-bs-placement="left" data-bs-custom-class="custom-tooltip"
-        data-bs-title="¿Necesitas ayuda?">
+    <a href="https://api.whatsapp.com/message/32ES7KUOOJEDE1?autoload=1&app_absent=0" class="float" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-custom-class="custom-tooltip" data-bs-title="¿Necesitas ayuda?">
         <i class="fa fa-whatsapp my-float"></i>
     </a>
+
+    <?php
+    setlocale(LC_TIME, 'es_ES.UTF-8'); // Establecer el idioma en español
+
+
+    if ($conexion->connect_errno) {
+        echo "Falló la conexión a MySQL: (" . $conexion->connect_errno . ") " . $conexion->connect_error;
+        exit;
+    }
+
+    $sql = "SELECT * FROM entradas_blog ORDER BY fecha_publicacion DESC LIMIT 3";
+
+    $resultado = $conexion->query($sql);
+
+    // Verificar si se encontraron resultados
+    if ($resultado->num_rows > 0) {
+        $entradas = []; // Inicializar el array de entradas
+        // Recorrer cada fila de resultados y guardar en el array de entradas
+        while ($fila = $resultado->fetch_assoc()) {
+            // Obtener el contenido completo dentro del bucle
+            $contenidoCompleto = htmlspecialchars($fila['contenido']);
+
+            // Dividir el contenido en palabras
+            $palabras = explode(" ", $contenidoCompleto);
+
+            // Tomar las primeras 10 palabras
+            $contenido = implode(" ", array_slice($palabras, 0, 18));
+
+            $entrada = [
+                'id' => $fila['id'],
+                'titulo' => htmlspecialchars($fila['titulo']),
+                'etiqueta' => htmlspecialchars($fila['etiqueta']),
+                'fecha' => htmlspecialchars($fila['fecha_publicacion']),
+                'imagen' => 'data:image/jpeg;base64,' . base64_encode($fila['imagen']), // Convertir imagen a base64
+                'contenido' => $contenido // Aquí usamos $contenido en lugar de $contenidoCompleto
+            ];
+            $entradas[] = $entrada;
+        }
+    }
+
+    $conexion->close();
+    ?>
 
     <br><br><br><br>
 
@@ -104,19 +144,15 @@
                             </div>
                         </div>
 
-                        <div class="d-none d-md-block"
-                            style="position: absolute; right: -40px; top: 15%; transform: translateY(-50%);">
+                        <div class="d-none d-md-block" style="position: absolute; right: -40px; top: 15%; transform: translateY(-50%);">
                             <p>
-                                <a href="https://www.linkedin.com/in/gastontucoach/"><img src="/img/iconos/linkedin.svg"
-                                        class="iconRedes"></a>
+                                <a href="https://www.linkedin.com/in/gastontucoach/"><img src="/img/iconos/linkedin.svg" class="iconRedes"></a>
                             </p>
                             <p>
-                                <a href="https://www.instagram.com/gaston_tucoach/"><img src="/img/iconos/instagram.svg"
-                                        class="iconRedes"></a>
+                                <a href="https://www.instagram.com/gaston_tucoach/"><img src="/img/iconos/instagram.svg" class="iconRedes"></a>
                             </p>
                             <p>
-                                <a href="https://open.spotify.com/show/2u0pdbHZpnaM1MqMt7R6Hd?si=39b28ffd73b64d14&nd=1"><img
-                                        src="/img/iconos/spotify.svg" class="iconRedes"></a>
+                                <a href="https://open.spotify.com/show/2u0pdbHZpnaM1MqMt7R6Hd?si=39b28ffd73b64d14&nd=1"><img src="/img/iconos/spotify.svg" class="iconRedes"></a>
                             </p>
                         </div>
                     </div>
@@ -162,31 +198,27 @@
                     <div class="cita">
                         <span>
                             <h4>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-quote"
-                                    viewBox="0 0 16 16">
-                                    <path
-                                        d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-quote" viewBox="0 0 16 16">
+                                    <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1z" />
                                 </svg>
                                 Comunicá desde vos con tu voz
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-quote"
-                                    viewBox="0 0 16 16">
-                                    <path
-                                        d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-quote" viewBox="0 0 16 16">
+                                    <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1z" />
                                 </svg>
                             </h4>
                         </span>
                     </div>
 
                     <p class="texto">&nbsp; Es mi lema, porque no hay nada más potente, más genuino, más
-                    auténtico, más inspirador que aquella persona u organización que comunica, trabaja y cuenta
-                    historias desde su propio ser, desde su propia coherencia emocional, corporal y linguistica.
+                        auténtico, más inspirador que aquella persona u organización que comunica, trabaja y cuenta
+                        historias desde su propio ser, desde su propia coherencia emocional, corporal y linguistica.
                     </p>
                 </div>
 
             </div>
 
             <div class="col-md-5 d-none d-md-block" data-aos="fade-left" style="padding-left: 70px;"><br><br>
-                <div class="p-4 mb-3 bg-body-tertiary rounded" style="width: 80%;">
+                <div class="p-4 mb-3 bg-body-tertiary rounded-4" style="width: 80%;">
                     <h5>. Actividades que más amo</h5>
                     <p class="texto">
                     <table>
@@ -208,37 +240,66 @@
                     <div>
                         <h4 class="fst-italic" data-aos="fade-left">Blogs recientes</h4>
                         <ul class="list-unstyled">
-                            <li data-aos="fade-left">
-                                <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
-                                    href="#">
-                                    <img src="/img/img_2.jpeg" style="width: 100%; height: 100px;">
-                                    <div class="col-lg-8">
-                                        <h6 class="mb-0">Conversaciones Poderosas</h6>
-                                        <small class="text-body-secondary">Noviembre 11, 2023</small>
-                                    </div>
-                                </a>
-                            </li>
-                            <li data-aos="fade-left">
-                                <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
-                                    href="#">
-                                    <img src="/img/img_1.jpeg" style="width: 100%; height: 100px;">
-                                    <div class="col-lg-8">
-                                        <h6 class="mb-0">Comunicacion efectiva</h6>
-                                        <small class="text-body-secondary">Noviembre 12, 2023</small>
-                                    </div>
-                                </a>
-                            </li>
-                            <li data-aos="fade-left">
-                                <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
-                                    href="#">
-                                    <img src="/img/miniaturaYoutube.jpg" style="width: 115px; height: 100px;">
 
-                                    <div class="col-lg-8">
-                                        <h6 class="mb-0">Comunicación cortita y al pie</h6>
-                                        <small class="text-body-secondary">Octubre 7, 2023</small>
-                                    </div>
-                                </a>
-                            </li>
+                            <?php if (!empty($entradas[0])) : ?>
+
+                                <li data-aos="fade-left">
+                                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://gastonmondino.com/blog.php?id=<?php echo htmlspecialchars($entradas[0]['id']); ?>">
+                                        <img class="rounded-3 imgBlog" src="<?php echo htmlspecialchars($entradas[0]['imagen']); ?>">
+                                        <div class="col-lg-8">
+                                            <h6 class="mb-0">
+                                                <?php echo htmlspecialchars($entradas[0]['titulo']); ?>
+
+                                            </h6>
+                                            <small class="text-body-secondary">
+                                                <?php echo strftime("%e de %B de %Y", strtotime($entradas[0]['fecha'])); ?>
+                                            </small>
+                                        </div>
+                                    </a>
+                                </li>
+
+                            <?php endif; ?>
+
+                            <?php if (!empty($entradas[1])) : ?>
+
+
+                                <li data-aos="fade-left">
+                                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://gastonmondino.com/blog.php?id=<?php echo htmlspecialchars($entradas[1]['id']); ?>">
+                                        <img class="rounded-3 imgBlog" src="<?php echo htmlspecialchars($entradas[1]['imagen']); ?>">
+                                        <div class="col-lg-8">
+                                            <h6 class="mb-0">
+                                                <?php echo htmlspecialchars($entradas[1]['titulo']); ?>
+
+                                            </h6>
+                                            <small class="text-body-secondary">
+                                                <?php echo strftime("%e de %B de %Y", strtotime($entradas[1]['fecha'])); ?>
+                                            </small>
+                                        </div>
+                                    </a>
+                                </li>
+
+                            <?php endif; ?>
+
+                            <?php if (!empty($entradas[2])) : ?>
+
+
+                                <li data-aos="fade-left">
+                                    <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://gastonmondino.com/blog.php?id=<?php echo htmlspecialchars($entradas[2]['id']); ?>">
+                                        <img class="rounded-3 imgBlog" src="<?php echo htmlspecialchars($entradas[2]['imagen']); ?>">
+
+                                        <div class="col-lg-8">
+                                            <h6 class="mb-0">
+                                                <?php echo htmlspecialchars($entradas[2]['titulo']); ?>
+
+                                            </h6>
+                                            <small class="text-body-secondary">
+                                                <?php echo strftime("%e de %B de %Y", strtotime($entradas[2]['fecha'])); ?>
+                                            </small>
+                                        </div>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+
                         </ul>
                     </div>
 
@@ -250,7 +311,8 @@
 
         <img class="d-block d-sm-none imgCierre" src="/img/about/IMG-20231206-WA0047.jpg">
 
-        <br><br><hr>
+        <br><br>
+        <hr>
 
         <div class="row">
             <div class="text-center d-flex justify-content-center align-items-center">
@@ -277,9 +339,7 @@
 
     <footer></footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     <script src="../js/script.js"></script>
 
