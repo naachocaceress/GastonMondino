@@ -75,6 +75,20 @@
         font-weight: justify;
     }
     
+    .cuerpoBlog img{
+        display: block;
+        max-width: 100%;
+        height: auto;
+        border-radius:10px;
+    }
+    
+    .cuerpoBlog iframe{
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+        border-radius:10px;
+    }
+    
     .otrosBlog{
         padding-left: 20px;
             padding-right: 20px;
