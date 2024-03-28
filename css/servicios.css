@@ -1,0 +1,34 @@
+.hola {
+  height: 100vh !important;
+}
+
+.section {
+  width: 100% !important;
+  height: 100vh !important;
+  position: sticky !important;
+  top: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.section__dot {
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 50% !important;
+  background-color: white !important;
+}
+
+.section-one {
+  background-color: #ffffff;
+}
+
+.section-two {
+  background-color: #fff;
+  box-shadow: 0 -2px 25px rgba(0, 0, 0, 0.1);
+}
+
+.section-three {
+  background-color: #fff;
+  box-shadow: 0 -2px 25px rgba(0, 0, 0, 0.1);
+}
